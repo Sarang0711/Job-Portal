@@ -1,0 +1,21 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+body{
+  background-color: rgb(209, 209, 255);
+  color:  rgb(255, 255, 255);
+}
+
+.App{
+  padding: 32px;
+}
+
+h1{
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
