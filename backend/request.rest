@@ -5,7 +5,8 @@ POST http://localhost:3001/auth/register
 Content-Type: application/json
 
 {
-    "username": "sara",
-    "password": "123"
+    "username": "extrauser",
+    "password": "123",
+    "name" : "prthamesh"
 
 }

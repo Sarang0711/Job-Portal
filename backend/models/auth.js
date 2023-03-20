@@ -9,6 +9,10 @@ const authSchema = new Schema({
 	password: {
 		type: String,
 		default: false
+	},
+	name : {
+		type: String,
+		default : false
 	}
 });
 

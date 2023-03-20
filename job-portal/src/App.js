@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Welcome</h1>
+     
       {/* <input type="text" placeholder='YOUR USERNAME'/>
       <br/>
       <br/>

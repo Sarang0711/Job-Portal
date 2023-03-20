@@ -80,3 +80,10 @@ form input {
   margin: 0 auto 10px auto;
 
 }
+
+a {
+  color: rgb(6, 43, 43);
+  cursor: pointer;
+  font-weight: 700;
+}
+

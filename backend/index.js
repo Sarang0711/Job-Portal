@@ -22,7 +22,8 @@ app.get('/auth', async(req, res) => {
 app.post('/auth/register', (req, res) => {
     const newUser = new Auth({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        name : req.body.name
     });
     newUser.save();
     res.json(newUser);
