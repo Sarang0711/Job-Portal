@@ -1,7 +1,10 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import Input from "./Input";
 import attributes from "./InputAttributes";
 import { useState,useEffect } from "react";
+import Dashboard from "./Dashboard";
+
 const API_BASE = "http://localhost:3001";
 
 
@@ -131,12 +134,14 @@ function Login(){
 
 {isLoggedIn ? <>
     <h2>Successfully Loged In</h2>
-    <h1>Hello : {name}</h1>
+    <h1>Hello {name}</h1>
+    
     <button
             style = {{backgroundColor: isMouseOver ? "Black" : "White"}}
             onClick={() => {setisLoggedIn(false)}}
         >Logout
-        </button>
+    </button>
+    
 </> :
     <div>
     { isUserRegistered ? <h1>Login</h1> : <h1>Register</h1> }
