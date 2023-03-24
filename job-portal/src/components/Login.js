@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import Input from "./Input";
 import RecrutLogin from "./Recrutergister";
 import attributes from "./InputAttributes";
@@ -134,78 +134,78 @@ function Login(){
     return (
         <>
 
-{isLoggedIn ? <>
-    <h2>Successfully Loged In</h2>
-    <h1>Hello {name}</h1>
-    
-    <button
-            style = {{backgroundColor: isMouseOver ? "Black" : "White"}}
-            onClick={() => {setisLoggedIn(false)}}
-        >Logout
-    </button>
-    
-</> :
-    <div>
-        {isUserRegistered ? 
-            <>{ isUserRegistered ? <h1>Login</h1> : <h1>Register</h1> }
-            <form className="form">
-                { !isUserRegistered && <input type="text" placeholder="Your Full Name" id="4" name='name' onChange= {handleChange}></input>}
-                {/* {attributes.map(createInputElement)} */}
-                <input type="text" placeholder="Username" name='username' onChange={handleChange} id="1"></input>
-                <input type="password" placeholder="Password" name= 'password' onChange= {handleChange} id="2"></input>
-        
-                { !isUserRegistered && <input type="password" placeholder="Confirm Password" id="3"></input>}
+            {isLoggedIn ? <>
+                <h2>Successfully Loged In</h2>
+                <h1>Hello {name}</h1>
                 
-            </form>
-            <button type="submit"
-                    style = {{backgroundColor: isMouseOver ? "Black" : "White"}}
-                    // onMouseOver = { handleMouseOver }
-                    // onMouseOut = { handleMouseOut }
-                    onClick={func}
-                >
-                    { isUserRegistered ? "Login" : "Register Me" }{/* Note here in js quotes are given for SignIn and Login */}
-                    {/* {isuserLogin ? console.log('loggind'): null} */}
-        
-                    
-                </button>  
-                {isUserRegistered ? <p>Don't have an account? <a onClick={() => { setisUserRegistered(false)}}>click here</a> to register</p> : <p>Already registered? <a onClick={()=> {setisUserRegistered(true)}}>click here</a> to login</p> }
-                {isUserRegistered ? <p></p> : <p><a onClick={()=> {setisUserRegistered(true)}}>click here</a> to Register as Recruter</p> }
-              </>
-        : 
-            
-            <>
-            {isrecruter ? 
-                <RecrutLogin />
-            :
-            <>{ isUserRegistered ? <h1>Login</h1> : <h1>Register</h1> }
-            <form className="form">
-                { !isUserRegistered && <input type="text" placeholder="Your Full Name" id="4" name='name' onChange= {handleChange}></input>}
-                {/* {attributes.map(createInputElement)} */}
-                <input type="text" placeholder="Username" name='username' onChange={handleChange} id="1"></input>
-                <input type="password" placeholder="Password" name= 'password' onChange= {handleChange} id="2"></input>
-        
-                { !isUserRegistered && <input type="password" placeholder="Confirm Password" id="3"></input>}
+                <button
+                        style = {{backgroundColor: isMouseOver ? "Black" : "White"}}
+                        onClick={() => {setisLoggedIn(false)}}
+                    >Logout
+                </button>
                 
-            </form>
-            <button type="submit"
-                    style = {{backgroundColor: isMouseOver ? "Black" : "White"}}
-                    onClick={func}
-                >
-                    { isUserRegistered ? "Login" : "Register Me" }
-        
+            </> :
+                <div>
+                    {isUserRegistered ? 
+                        <>{ isUserRegistered ? <h1>Login</h1> : <h1>Register</h1> }
+                        <form className="form">
+                            { !isUserRegistered && <input type="text" placeholder="Your Full Name" id="4" name='name' onChange= {handleChange}></input>}
+                            {/* {attributes.map(createInputElement)} */}
+                            <input type="text" placeholder="Username" name='username' onChange={handleChange} id="1"></input>
+                            <input type="password" placeholder="Password" name= 'password' onChange= {handleChange} id="2"></input>
                     
-                </button>  
-                {isUserRegistered ? <p>Don't have an account? <a onClick={() => { setisUserRegistered(false)}}>click here</a> to register</p> : <p>Already registered? <a onClick={()=> {setisUserRegistered(true)}}>click here</a> to login</p> }
-                {isUserRegistered ? <p></p> : <p><a onClick={()=> {setRecruter(true)}}>click here</a> to Register as Recruter</p> }
-              </>
-            }</>
-        }
-    
-    </div>
-     }
+                            { !isUserRegistered && <input type="password" placeholder="Confirm Password" id="3"></input>}
+                            
+                        </form>
+                        <button type="submit"
+                                style = {{backgroundColor: isMouseOver ? "Black" : "White"}}
+                                // onMouseOver = { handleMouseOver }
+                                // onMouseOut = { handleMouseOut }
+                                onClick={func}
+                            >
+                                { isUserRegistered ? "Login" : "Register Me" }{/* Note here in js quotes are given for SignIn and Login */}
+                                {/* {isuserLogin ? console.log('loggind'): null} */}
+                    
+                                
+                            </button>  
+                            {isUserRegistered ? <p>Don't have an account? <a onClick={() => { setisUserRegistered(false)}}>click here</a> to register</p> : <p>Already registered? <a onClick={()=> {setisUserRegistered(true)}}>click here</a> to login</p> }
+                            {isUserRegistered ? <p></p> : <p><a onClick={()=> {setisUserRegistered(true)}}>click here</a> to Register as Recruter</p> }
+                        </>
+                    : 
+                        
+                        <>
+                        {isrecruter ? 
+                            <RecrutLogin/>
+                        :
+                        <>{ isUserRegistered ? <h1>Login</h1> : <h1>Register</h1> }
+                        <form className="form">
+                            { !isUserRegistered && <input type="text" placeholder="Your Full Name" id="4" name='name' onChange= {handleChange}></input>}
+                            {/* {attributes.map(createInputElement)} */}
+                            <input type="text" placeholder="Username" name='username' onChange={handleChange} id="1"></input>
+                            <input type="password" placeholder="Password" name= 'password' onChange= {handleChange} id="2"></input>
+                    
+                            { !isUserRegistered && <input type="password" placeholder="Confirm Password" id="3"></input>}
+                            
+                        </form>
+                        <button type="submit"
+                                style = {{backgroundColor: isMouseOver ? "Black" : "White"}}
+                                onClick={func}
+                            >
+                                { isUserRegistered ? "Login" : "Register Me" }
+                    
+                                
+                            </button>  
+                            {isUserRegistered ? <p>Don't have an account? <a onClick={() => { setisUserRegistered(false)}}>click here</a> to register</p> : <p>Already registered? <a onClick={()=> {setisUserRegistered(true)}}>click here</a> to login</p> }
+                            {isUserRegistered ? <p></p> : <p><a onClick={()=> {setRecruter(true)}}>click here</a> to Register as Recruter</p> }
+                        </>
+                        }</>
+                    }
+                
+                </div>
+                }
         
         
      </>
     )
 }
-export default Login
+export default Login;
