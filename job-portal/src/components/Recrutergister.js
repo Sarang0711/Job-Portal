@@ -1,10 +1,11 @@
 import React from 'react';
 import { useEffect,useState } from 'react';
 import Input from './Input';
+import { Link } from 'react-router-dom';    
 
 
 
-function RecrutLogin(){
+function Registerrecruit(){
 
     function backtologin(){
         alert("u")
@@ -30,9 +31,13 @@ function RecrutLogin(){
         
                     
                 </button>  
-                <p>Already Registered? <a onClick={backtologin}>Click here</a> to login</p>
+                {/* <p>Already Registered? <a onClick={backtologin}>Click here</a> to login</p> */}
+                <p>
+                    
+                <Link to="/login">Click here</Link>
+                </p>
     </>
     ); 
 }
 
-export default RecrutLogin;
+export default Registerrecruit;
