@@ -29,7 +29,6 @@ function Login(){
     const[isrecruter, setRecruter] = useState(false);
 
 
-    let isuserLogin = false;
 
     useEffect(() => {
       GetUsers();  

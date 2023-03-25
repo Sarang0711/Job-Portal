@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const Auth = require('./models/auth');
+const Recregistration = require('./models/recregistration');
 
 const app = express();
 app.use(express.json());
@@ -27,6 +28,19 @@ app.post('/auth/register', (req, res) => {
     });
     newUser.save();
     res.json(newUser);
+})
+
+app.post('/auth/recregister', (req, res) => {
+    const newRecruter = new Recregistration({
+        username: req.body.username,
+        password: req.body.password,
+        name : req.body.name,
+        companyname : req.body.companyname,
+        roll : req.body.roll
+
+    });
+    newRecruter.save();
+    res.json(newUsnewRecruterer);
 })
 
 app.listen(3001, ()=> {
