@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Registerrecruit from './components/Recrutergister';
+import RecDash from './components/RecDash';
 
 
 
@@ -21,18 +22,15 @@ function App() {
   return (
     <div className="container">
      
-      {/* <input type="text" placeholder='YOUR USERNAME'/>
-      <br/>
-      <br/>
-      <input type="text" placeholder='YOUR PASSWORD' />
-      <br/><br/>
-      <button id='submit' >LOGIN</button> */}
+
 
       <Router>
       <Routes>
         <Route path="/login" element={ <Login /> }/>
         <Route path="/dashboard" element={ <Dashboard /> }/>
         <Route path="/regirecruiter" element={<Registerrecruit />} />
+        <Route path="/login/recdash" element={<RecDash />} />
+
       </Routes>
     </Router>
     </div>

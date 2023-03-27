@@ -20,7 +20,7 @@ function createInputElement(InputElement) {
 }
 
 function Login(){
-    const[users, setUsers] = useState([]);
+    const[users, setUsers] = useState([]); //stores data returned from database
     const[isLoggedIn, setisLoggedIn] = useState(false);
     const[isUserRegistered, setisUserRegistered] = useState(true);
     const[username, setUsername] = useState('');
@@ -121,10 +121,10 @@ function Login(){
 
     
     return (
-        <>
+        <div className="logincontainer">
 
             {isLoggedIn ? <>
-                <h2>Successfully Loged In</h2>
+                <h2>Successfully Logged In</h2>
                 <h1>Hello {name}</h1>
                 
                 <button
@@ -161,7 +161,7 @@ function Login(){
                 }
         
         
-     </>
+     </div>
     )
 }
 export default Login;
