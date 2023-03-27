@@ -40,9 +40,7 @@ function Login(){
         .then(data => {setUsers(data) 
             setUsername(users.username)
             console.log(users.username)})
-        .catch(err => console.error("errors : " , err));
-
-        
+        .catch(err => console.error("errors : " , err)); 
     }
 
     function handleChange(event) {
@@ -99,14 +97,6 @@ function Login(){
         console.log(data)
     }
 
-    const [isMouseOver, setMouseOver] = useState(false);
-
-    function handleMouseOver() {
-        setMouseOver(true);
-    }
-    function handleMouseOut() {
-        setMouseOver(false);
-    }
     function func (){
         if(isUserRegistered){
             console.log(users)
@@ -138,7 +128,7 @@ function Login(){
                 <h1>Hello {name}</h1>
                 
                 <button
-                        style = {{backgroundColor: isMouseOver ? "Black" : "White"}}
+                        
                         onClick={() => {setisLoggedIn(false)}}
                     >Logout
                 </button>
@@ -148,7 +138,6 @@ function Login(){
                         <>{ isUserRegistered ? <h1>Login</h1> : <h1>Register</h1> }
                         <form className="form">
                             { !isUserRegistered && <input type="text" placeholder="Your Full Name" id="4" name='name' onChange= {handleChange}></input>}
-                            {/* {attributes.map(createInputElement)} */}
                             <input type="text" placeholder="Username" name='username' onChange={handleChange} id="1"></input>
                             <input type="password" placeholder="Password" name= 'password' onChange= {handleChange} id="2"></input>
                     
@@ -156,7 +145,6 @@ function Login(){
                             
                         </form>
                         <button type="submit"
-                                style = {{backgroundColor: isMouseOver ? "Black" : "White"}}
                                 onClick={func}
                             >
                                 { isUserRegistered ? "Login" : "Register Me" }

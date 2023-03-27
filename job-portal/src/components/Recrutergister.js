@@ -2,10 +2,23 @@ import React from 'react';
 import { useEffect,useState } from 'react';
 import Input from './Input';
 import { Link } from 'react-router-dom';    
+const API_BASE = "http://localhost:3001";
 
 
 
 function Registerrecruit(){
+
+
+    useEffect(() => {
+        GetUsers();  
+      }, []);
+  
+    const GetUsers = async () => {
+    fetch(API_BASE + "/auth")
+        .then(res => res.json())
+        .then(data => {console.log(data)})
+        .catch(err => console.error("errors : " , err)); 
+    }
 
     function backtologin(){
         alert("u")
