@@ -35,6 +35,10 @@
     border: 2px solid lightblue;
     background-color: li;
     border-radius: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 15px;
 }
 
 
@@ -43,4 +47,29 @@
     aspect-ratio: 1/1;
     background-color: lightblue;
     border-radius: 50%;
+}
+
+.icons{
+    color : darkgray;
+    font-size: 25px;
+    font-weight: 15px;
+}
+
+.search-bar input{
+    border: none;
+    width: 80%;
+    margin-left: 20px;
+    font-size: 25px;
+    outline: none;
+}
+
+.profile-menu{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.menuicon{
+    margin-right: 40px;
+    font-size: 35px;
 }
