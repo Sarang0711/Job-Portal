@@ -50,7 +50,7 @@
 }
 
 .icons{
-    color : darkgray;
+    color : rgb(59, 59, 59);
     font-size: 25px;
     font-weight: 15px;
 }
@@ -59,7 +59,7 @@
     border: none;
     width: 80%;
     margin-left: 20px;
-    font-size: 25px;
+    font-size: 15px;
     outline: none;
 }
 

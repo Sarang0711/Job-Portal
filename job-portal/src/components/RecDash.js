@@ -18,11 +18,11 @@ function RecDash() {
       <div className="container-rec">
         <div className="recnav">
             <div className="recnav-nav">
-                <p>Job Portal</p>
+                <p><strong>Job Portal</strong></p>
 
                 <div className="search-bar">
                   <FaSearch className="icons searchicons"/>
-                  <input type="text" placeholder="Search Here"></input>
+                  <input type="text" placeholder="Search Your employees"></input>
                 </div>
                 <div className="profile-menu">
                   <AiOutlineMenu className="icons menuicon"/>
