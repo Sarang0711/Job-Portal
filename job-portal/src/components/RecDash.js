@@ -30,10 +30,21 @@ function RecDash() {
                   <div className="profile"></div>
                 </div>
                 
-                    
-                
-                
+
+
+
             </div>
+
+            <div className="quick-container">
+                <div className="innerholder">
+                  <p>Post a</p>
+                  <div className="postbtn">
+                    <button>Internship</button>
+                    <button>Job</button>
+                    <button>View Applicants</button>
+                  </div>
+                </div>
+              </div>
         </div>
         
       </div>
