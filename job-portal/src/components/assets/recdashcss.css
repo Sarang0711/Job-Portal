@@ -11,6 +11,11 @@
     height: 30vh;
     border-radius: 40px;
     padding-top: 10px;
+    margin-bottom: 40px;
+    display:flex; 
+    justify-content:space-between; 
+    flex-direction: column 
+    
 }
 
 .recnav-nav{
@@ -35,6 +40,10 @@
     border: 2px solid lightblue;
     background-color: li;
     border-radius: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 15px;
 }
 
 
@@ -43,4 +52,148 @@
     aspect-ratio: 1/1;
     background-color: lightblue;
     border-radius: 50%;
+}
+
+.icons{
+    color : rgb(59, 59, 59);
+    font-size: 25px;
+    font-weight: 15px;
+}
+
+.search-bar input{
+    border: none;
+    width: 80%;
+    margin-left: 20px;
+    font-size: 15px;
+    outline: none;
+}
+
+.profile-menu{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.menuicon{
+    margin-right: 40px;
+    font-size: 35px;
+}
+
+.quick-container{
+    border:  3px solid lightblue;
+    width: 100%;
+    height: 55%;
+    border-radius: 40px;
+    display: flex;
+    justify-content: start;
+    padding-left: 40px;
+    align-items: center;
+    
+}
+
+
+.innerholder{
+    display :flex;
+    height: 50px;
+    align-items: center;
+}
+
+.innerholder p{
+    font-size: 30px;
+    color: rgb(29, 29, 29);
+    font-family: sans-serif;
+    margin-right: 40px;
+    height: 100%;
+}
+
+.postbtn{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.postbtn button{
+    background-color: lightblue;
+    color: black;
+    font-size: 30px;
+    color: rgb(29, 29, 29);
+    font-family: sans-serif;
+    height: 100%;
+    width: auto ;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.postbtn button::before,
+.postbtn button::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: rgba(162, 220, 240, 0.199);
+  transition: all 0.5s;
+}
+
+.postbtn button::before {
+  top: 0;
+  right: 0;
+  border-radius: 0 15px 0 100%;
+}
+
+.postbtn button::after {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100%  0 15px;
+}
+
+.postbtn button:hover::before,
+.postbtn button:hover:after {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: all 0.5s;
+}
+
+
+
+.urdash{
+    font-family: sans-serif;
+    font-size: 40px;
+    width: min-content;
+    margin-left: 40px;
+}
+
+
+.dashcontainer{
+    background-color: white;
+    width: 100%;
+    height: 43vh;
+    border-radius: 40px;
+    display:flex; 
+    margin-top: 20px;
+    justify-content:space-evenly; 
+    align-items: center;
+}
+
+.widget{
+    /* border: 4px lightgray solid; */
+    height: 70%;
+    width: 20%;
+    border-radius: 30px;
+    cursor: pointer;
+    
+
+}
+
+.widget:hover{
+    box-shadow: 20px 20px 40px #bebebe,
+    -20px -20px 40px #ffffff;
+    transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
