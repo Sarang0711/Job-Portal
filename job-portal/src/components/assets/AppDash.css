@@ -1,4 +1,26 @@
 .app-nav{
     background-color: #fff;
+    width: 90%;
+    margin-top: 30px;
+    margin: 30px auto 0;
+    min-height: 70px;
+    border-radius: 20px;
+    padding: 20px;
+    padding-left: 10px;
+    color: black;
+    display: flex;
+}
+.logo{
+    color: black;
+    width: 100px;
+    font-size: larger;
+    font-weight: 200;
+}
+.nav-items {
+    display: flex;
+    flex-direction: row;
     
+}
+.nav-items p {
+    padding-left: 30px;
 }

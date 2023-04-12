@@ -9,6 +9,12 @@ function ApplicantDashboard() {
         <div className="logo">
           <p><strong>Job Portal</strong></p>
         </div>
+        <div className="nav-items">
+          <p>New Internship</p>
+          <p>Applied</p>
+          <p>Refer a Friend</p>
+          <p>Messages</p>
+        </div>
       </div>
     </div>
       
