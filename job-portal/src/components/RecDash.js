@@ -53,10 +53,10 @@ function RecDash() {
         <div className="dashcontainer">
             <div className="appliedcontainer widget">
                 <p className="heading">Number of Applicants</p>
-                <p className="number">45</p>
+                <p className="number">55</p>
             </div>
             <div className="opporcont widget">
-
+                  
             </div>
             <div className="newcadcont widget">
 

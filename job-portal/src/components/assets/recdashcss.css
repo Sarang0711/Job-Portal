@@ -189,15 +189,47 @@
     border-radius: 30px;
     cursor: pointer;
     color: black;
+    overflow: hidden;
+    position: relative;
 }
 .appliedcontainer{
     background-image: url(ladywalk.png);
     background-size: cover;
 
 }
+.widget > .heading{
+    color: #2845ffb4;
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    width: 80%;
+    margin: 15px auto auto 5px;
+}
+
+.widget > .number{
+    color: #fffb00b4;
+    font-family: sans-serif;
+    font-size: 150px;
+    font-weight: 700;
+    width: 80%;
+    margin: 15px auto auto 5px;
+    position: absolute;
+    left: -20px;
+    bottom: -40px;
+    /* text-shadow: 10px 5px 30px rgba(131, 121, 47, 0.493); */
+}
+
+.widget > .number:hover{
+    /* transform: scale(1.01); */
+    text-shadow: 10px 5px 40px rgba(131, 121, 47, 0.493);
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    left: -18px;
+    bottom: -38px;
+}
 
 .widget:hover{
-    box-shadow: 20px 20px 40px #bebebe,
+    box-shadow: 20px 20px 40px #bebebe48,
     -20px -20px 40px #ffffff;
     transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+
