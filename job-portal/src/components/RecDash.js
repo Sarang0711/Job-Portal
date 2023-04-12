@@ -4,8 +4,7 @@ import Input from "./Input";
 import {Link} from 'react';
 import { FaSearch } from "react-icons/fa";
 import {AiOutlineMenu } from "react-icons/ai";
-
-
+import Ladyback from "./assets/ladywalk.png"
 
 
 
@@ -53,7 +52,8 @@ function RecDash() {
 
         <div className="dashcontainer">
             <div className="appliedcontainer widget">
-
+                <p className="heading">Number of Applicants</p>
+                <p className="number">45</p>
             </div>
             <div className="opporcont widget">
 

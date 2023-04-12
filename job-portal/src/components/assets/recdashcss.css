@@ -188,7 +188,11 @@
     width: 20%;
     border-radius: 30px;
     cursor: pointer;
-    
+    color: black;
+}
+.appliedcontainer{
+    background-image: url(ladywalk.png);
+    background-size: cover;
 
 }
 
