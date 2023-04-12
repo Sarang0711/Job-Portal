@@ -51,6 +51,21 @@ function RecDash() {
         <p className="urdash">Your</p>
         <p className="urdash">Dashboard</p>
 
+        <div className="dashcontainer">
+            <div className="appliedcontainer widget">
+
+            </div>
+            <div className="opporcont widget">
+
+            </div>
+            <div className="newcadcont widget">
+
+            </div>
+            <div className="somecont widget">
+
+            </div>
+
+        </div>
 
         
       </div>
