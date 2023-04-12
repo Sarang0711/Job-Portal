@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 // import Login from './components/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
-import Dashboard from './components/Dashboard';
+import ApplicantDashboard from './components/ApplicantDashboard';
 import Registerrecruit from './components/Recrutergister';
 import RecDash from './components/RecDash';
 
@@ -27,9 +27,10 @@ function App() {
       <Router>
       <Routes>
         <Route path="/login" element={ <Login /> }/>
-        <Route path="/dashboard" element={ <Dashboard /> }/>
+        <Route path="/dashboard" element={ <ApplicantDashboard /> }/>
         <Route path="/regirecruiter" element={<Registerrecruit />} />
         <Route path="/login/recdash" element={<RecDash />} />
+        
 
       </Routes>
     </Router>

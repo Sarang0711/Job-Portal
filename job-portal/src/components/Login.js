@@ -4,7 +4,7 @@ import RecrutLogin from "./Recrutergister";
 import attributes from "./InputAttributes";
 import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
-import Dashboard from "./Dashboard";
+import Dashboard from "./ApplicantDashboard";
 
 const API_BASE = "http://localhost:3001";
 
