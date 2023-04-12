@@ -6,6 +6,7 @@ import Login from './components/Login';
 import ApplicantDashboard from './components/ApplicantDashboard';
 import Registerrecruit from './components/Recrutergister';
 import RecDash from './components/RecDash';
+import Homepage from './components/Homepage';
 
 
 
@@ -30,7 +31,8 @@ function App() {
         <Route path="/dashboard" element={ <ApplicantDashboard /> }/>
         <Route path="/regirecruiter" element={<Registerrecruit />} />
         <Route path="/login/recdash" element={<RecDash />} />
-        
+        <Route exact path="/" element={<Homepage />} />
+
 
       </Routes>
     </Router>
