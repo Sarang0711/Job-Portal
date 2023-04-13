@@ -191,10 +191,12 @@
     color: black;
     overflow: hidden;
     position: relative;
+    
 }
 .appliedcontainer{
     background-image: url(ladywalk.png);
     background-size: cover;
+    
 
 }
 .appliedcontainer > .heading{
@@ -221,10 +223,12 @@
 
 .appliedcontainer > .number:hover{
     /* transform: scale(1.01); */
-    text-shadow: 10px 5px 40px rgba(131, 121, 47, 0.493);
+    text-shadow: 10px 5px 40px rgba(235, 212, 35, 0.493);
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    left: -18px;
-    bottom: -38px;
+    /* left: -18px;
+    bottom: -38px; */
+    transform: scale(1.04);
+
 }
 
 .widget:hover{
@@ -236,14 +240,67 @@
 .opporcont{
     position: relative;
     font-family: sans-serif;
-    border: 3px solid dodgerblue;
+    border: 4px dotted rgba(0, 139, 139, 0.134);
+    background-color: rgba(234, 243, 246, 0.479);
+
 }
 
 .opporcont > .slash {
+    font-family:monospace;
     color: #2845ffb4;
-    font-size: 180px;
-    font-weight: 500;
+    font-size: 220px;
+    font-weight: 300;
     position: absolute;
-    top:50%;
-    left : 50%;
+    top:-20%;
+    left : 25%;
+}
+
+.opporcont > .heading{
+    color: #2845ffb4;
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    right: 15px;
+    position: absolute;
+    top: 15px;
+}
+
+.opporcont > .headinglow{
+    color: #2845ffb4;
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    
+}
+
+
+.opporcont > .number{
+    color: #ffd500b4;
+    font-family: sans-serif;
+    font-size: 150px;
+    font-weight: 700;
+    position: absolute;
+    left: -15px;
+    top: -25px;
+}
+
+.opporcont > .number2{
+    color: #ffd500b4;
+    font-family: sans-serif;
+    font-size: 150px;
+    font-weight: 700;
+    position: absolute;
+    right: -15px;
+    bottom: -25px;
+}
+
+
+.opporcont > .number2:hover,.opporcont > .number:hover{
+    text-shadow: 10px 5px 40px rgba(235, 212, 35, 0.493);
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: scale(1.04);
+
 }

@@ -59,11 +59,11 @@ function RecDash() {
               <p className="heading">Posted</p>
               <p className="number">5</p>
               <p className="slash">\</p>
-              <p className="headinglow">Posted</p>
+              <p className="headinglow ">Hired</p>
               <p className="number2">8</p>
             </div>
             <div className="newcadcont widget">
-
+              
             </div>
             <div className="somecont widget">
 
