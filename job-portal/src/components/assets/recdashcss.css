@@ -172,7 +172,7 @@
 
 
 .dashcontainer{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     width: 100%;
     height: 43vh;
     border-radius: 40px;
@@ -197,7 +197,7 @@
     background-size: cover;
 
 }
-.widget > .heading{
+.appliedcontainer > .heading{
     color: #2845ffb4;
     font-family: sans-serif;
     font-size: 30px;
@@ -206,8 +206,8 @@
     margin: 15px auto auto 5px;
 }
 
-.widget > .number{
-    color: #fffb00b4;
+.appliedcontainer > .number{
+    color: #ffd500b4;
     font-family: sans-serif;
     font-size: 150px;
     font-weight: 700;
@@ -219,7 +219,7 @@
     /* text-shadow: 10px 5px 30px rgba(131, 121, 47, 0.493); */
 }
 
-.widget > .number:hover{
+.appliedcontainer > .number:hover{
     /* transform: scale(1.01); */
     text-shadow: 10px 5px 40px rgba(131, 121, 47, 0.493);
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -228,8 +228,22 @@
 }
 
 .widget:hover{
-    box-shadow: 20px 20px 40px #bebebe48,
+    box-shadow: 20px 20px 40px #bebebec3,
     -20px -20px 40px #ffffff;
     transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+.opporcont{
+    position: relative;
+    font-family: sans-serif;
+    border: 3px solid dodgerblue;
+}
+
+.opporcont > .slash {
+    color: #2845ffb4;
+    font-size: 180px;
+    font-weight: 500;
+    position: absolute;
+    top:50%;
+    left : 50%;
+}
