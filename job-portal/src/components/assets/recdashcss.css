@@ -304,3 +304,8 @@
     transform: scale(1.04);
 
 }
+
+.newcadcont{
+    background-image: url(boyredblue.png);
+    background-size: cover;
+}
