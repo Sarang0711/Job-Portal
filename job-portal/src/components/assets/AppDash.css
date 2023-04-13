@@ -1,4 +1,35 @@
-.app-nav{
+body{
+    background-color:aqua;
+}
+.custom-nav{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 50px;
+}
+nav{
+    border-radius: 20px;
+    margin-top: 30px;
+    /* padding: 0px; */
+    /* padding-left: 20px; */
+}
+.nav-link{
+    margin-left: 35px;
+}
+.profile {
+    background-color: rgb(196, 194, 194);
+    min-height: 50px;
+    /* display: inline; */
+    margin-left: 35px;
+    text-align: center;
+    
+}
+.dropdown {
+    min-height: 40px;
+}
+/* .dropdown-toggle {
+    content-visibility:hidden
+} */
+/* .app-nav{
     background-color: #fff;
     width: 90%;
     margin-top: 30px;
@@ -9,18 +40,18 @@
     padding-left: 10px;
     color: black;
     display: flex;
-}
-.logo{
+} */
+/* .logo{
     color: black;
     width: 100px;
     font-size: larger;
     font-weight: 200;
-}
-.nav-items {
+} */
+/* .nav-link {
     display: flex;
     flex-direction: row;
-    
-}
-.nav-items p {
+    vertical-align: auto;
+} */
+/* .nav-items p {
     padding-left: 30px;
-}
+} */
