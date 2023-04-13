@@ -1,5 +1,5 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import "../components/assets/AppDash.css";
 import { NavLink } from 'react-router-dom';
 import {Nav, Navbar} from 'react-bootstrap';
