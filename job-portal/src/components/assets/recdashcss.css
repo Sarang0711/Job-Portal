@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap');
 .container-rec{
     padding: 15px;
     width: 100vw;
@@ -30,8 +30,7 @@
 .recnav-nav p{
     font-size: 30px;
     color: rgb(29, 29, 29);
-    font-family: sans-serif;
-
+    font-family: 'Bungee Inline', cursive;
 }
 
 .search-bar{
@@ -164,8 +163,8 @@
 
 
 .urdash{
-    font-family: sans-serif;
-    font-size: 40px;
+    font-family: 'Bungee Inline', cursive;
+        font-size: 40px;
     width: min-content;
     margin-left: 40px;
 }
