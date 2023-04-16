@@ -8,7 +8,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/portaldb',{
+const db='mongodb+srv://vaibhavdhaygude70:9766782373@cluster0.mpploro.mongodb.net/?retryWrites=true&w=majority'
+
+mongoose.connect(db,{
+    dbName:'users',
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(()=> {
