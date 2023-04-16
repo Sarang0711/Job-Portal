@@ -7,20 +7,22 @@ const Recregistration = require('./models/recregistration');
 const app = express();
 app.use(express.json());
 app.use(cors());
+const DB = 'mongodb+srv://applicationbackend:carontree@jobportalapi.2mlp1ez.mongodb.net/jobportaldb?retryWrites=true&w=majority';
 
 const db='mongodb+srv://vaibhavdhaygude70:9766782373@cluster0.mpploro.mongodb.net/?retryWrites=true&w=majority'
 
-mongoose.connect(db,{
-    dbName:'users',
+mongoose.connect(DB,{
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    
 }).then(()=> {
-    console.log("Connected to db")
-}).catch(console.error);
+    console.log("Connected to online db")
+}).catch(console.error); 
 
 app.get('/auth', async(req, res) => {
-    const data = await Auth.find();
-    res.json(data);
+    res.json("yo");
+    // const data = await Auth.find();
+    // res.json(data);
 })
 
 app.post('/auth/register', (req, res) => {
