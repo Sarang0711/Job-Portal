@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap');
 .container-rec{
     padding: 15px;
     width: 100vw;
@@ -30,8 +30,7 @@
 .recnav-nav p{
     font-size: 30px;
     color: rgb(29, 29, 29);
-    font-family: sans-serif;
-
+    font-family: 'Bungee Inline', cursive;
 }
 
 .search-bar{
@@ -164,8 +163,8 @@
 
 
 .urdash{
-    font-family: sans-serif;
-    font-size: 40px;
+    font-family: 'Bungee Inline', cursive;
+        font-size: 40px;
     width: min-content;
     margin-left: 40px;
 }
@@ -191,6 +190,8 @@
     color: black;
     overflow: hidden;
     position: relative;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
     
 }
 .appliedcontainer{
@@ -218,12 +219,13 @@
     position: absolute;
     left: -20px;
     bottom: -40px;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
     /* text-shadow: 10px 5px 30px rgba(131, 121, 47, 0.493); */
 }
 
 .appliedcontainer > .number:hover{
     /* transform: scale(1.01); */
-    text-shadow: 10px 5px 40px rgba(235, 212, 35, 0.493);
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     /* left: -18px;
     bottom: -38px; */
@@ -240,7 +242,9 @@
 .opporcont{
     position: relative;
     font-family: sans-serif;
-    border: 4px dotted rgba(0, 139, 139, 0.134);
+    border: 6px dotted lightblue;
+
+    /* border: 4px dotted rgba(0, 139, 139, 0.134); */
     background-color: rgba(234, 243, 246, 0.479);
 
 }
@@ -285,6 +289,8 @@
     position: absolute;
     left: -15px;
     top: -25px;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
 }
 
 .opporcont > .number2{
@@ -295,11 +301,12 @@
     position: absolute;
     right: -15px;
     bottom: -25px;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
 }
 
 
 .opporcont > .number2:hover,.opporcont > .number:hover{
-    text-shadow: 10px 5px 40px rgba(235, 212, 35, 0.493);
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     transform: scale(1.04);
 
@@ -308,4 +315,88 @@
 .newcadcont{
     background-image: url(boyredblue.png);
     background-size: cover;
+    position: relative;
+    font-family: sans-serif;
+    border: 6px dotted lightblue;
+
+}
+
+.newcadcont > .heading{
+    color: #2845ffb4;
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    text-align: left;
+}
+.newcadcont > .number{
+    color: #ffd500b4;
+    font-family: sans-serif;
+    font-size: 150px;
+    font-weight: 700;
+    position: absolute;
+    left: -15px;
+    bottom: -45px;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+.newcadcont > .number:hover{
+    transform: scale(1.04);
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.somecont{
+    background-image: url(pattern2.png);
+    background-size: cover;
+    width:10%;
+    margin-right: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.somecont > .filter{
+    height: 93%;
+    width: 90%;
+    border-radius: 30px;
+    padding-top: 10px;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    cursor: pointer;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+.somecont > .filter > p{
+    color: #11034deb;
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+.somecont > .filter > svg{
+    color: rgb(202, 49, 49);
+}
+
+
+.somecont > .filter:hover{
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    /* transform: scale(1.04); */
+}
+
+.somecont > .filter:hover p{
+
+    transform: scale(1.04);
 }

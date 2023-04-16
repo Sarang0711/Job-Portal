@@ -63,10 +63,14 @@ function RecDash() {
               <p className="number2">8</p>
             </div>
             <div className="newcadcont widget">
-              
+                <p className="heading">New Applicants</p>
+                <p className="number">38</p>
             </div>
             <div className="somecont widget">
-
+                <div className="filter">
+                    <p>Some Text here</p>
+                    <svg fill='#11034deb' xmlns="http://www.w3.org/2000/svg" height="48"  viewBox="0 96 960 960" width="48"><path d="m480 896-42-43 247-247H160v-60h525L438 299l42-43 320 320-320 320Z"/></svg>
+                </div>
             </div>
 
         </div>
