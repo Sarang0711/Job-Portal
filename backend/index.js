@@ -19,6 +19,9 @@ mongoose.connect(DB,{
     console.log("Connected to online db")
 }).catch(console.error); 
 
+
+
+
 app.get('/auth', async(req, res) => {
     res.json("yo");
     // const data = await Auth.find();
@@ -44,8 +47,9 @@ app.post('/auth/recregister', (req, res) => {
         roll : req.body.roll
 
     });
-    newRecruter.save();
-    res.json(newUsnewRecruterer);
+    // newRecruter.save();
+    res.json(newRecruter);
+    console.log(newRecruter);
 })
 
 app.listen(3001, ()=> {
