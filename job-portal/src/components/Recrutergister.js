@@ -22,42 +22,32 @@ function Registerrecruit(){
     //     .catch(err => console.error("errors : " , err)); 
     // }
 
-    // function backtologin(){
-    //     alert("u")
-    // }
 
 
-    
-        const [name, setName] = useState("");
-        const [username, setUsername] = useState("");
-        const [password, setPassword] = useState("");
-        const [companyname, setComapanyname] = useState("");
-        const [roll, setRoll] = useState("");
-        const [confirmpass, setConfirmpass] = useState("");
+    const addRecruter = async () => {
+        console.log("adding recruter");
+        var recname = document.getElementById("0").value;
+        var reccompany = document.getElementById('1').value;
+        var recroll = document.getElementById('2').value;
+        var recusername = document.getElementById('3').value;
+        var recpass = document.getElementById('4').value;
 
-
-        const handleOnSubmit = async (e) => {
-            e.preventDefault();
-            let result = await fetch(
-            (API_BASE+'/auth/recregister'), {
-                method: "post",
-                body: JSON.stringify({ name, username,password,companyname,roll }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+        const data = await fetch(API_BASE + "/auth/recregister",{
+            method : "POST",
+            headers : {
+                "Content-Type" : "application/json"
+            },
+            body : JSON.stringify({
+                username: recusername,
+                password: recpass,
+                name : recname,
+                companyname : reccompany,
+                roll : recroll
             })
-            result = await result.json();
-            console.warn(result);
-            if (result) {
-                alert("Data saved succesfully");
-                setComapanyname("");
-                setName("");
-                setPassword("");
-                setRoll("");
-                setUsername("");
-                setConfirmpass("");
-            }
-        }
+        }).then(res => res.json());
+
+        console.log(data)
+    }
     
     return(
     <div className="logincontainer">

@@ -8,22 +8,22 @@ const recregistrationSchema = new Schema({
 	},
 	password: {
 		type: String,
-		default: false
+		default: true
 	},
 	name : {
 		type: String,
-		default : false
+		default : true
 	},
 	companyname : {
 		type: String,
-		default : false
+		default : true
 	},
 	roll : {
 		type: String,
 		default : false
-	},
+	}
 });
 
-const Recregistration = mongoose.model("Recregistration", recregistrationSchema);
+const Recregistration = mongoose.model("RECRUTER", recregistrationSchema);
 
 module.exports = Recregistration;
