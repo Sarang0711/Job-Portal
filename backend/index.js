@@ -43,7 +43,7 @@ app.post('/auth/recregister', (req, res) => {
 
     });
     newRecruter.save();
-    res.json(newUsnewRecruterer);
+    res.json(newRecruter);
 })
 
 app.listen(3001, ()=> {
