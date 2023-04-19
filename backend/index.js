@@ -11,7 +11,8 @@ const DB = 'mongodb+srv://applicationbackend:carontree@jobportalapi.2mlp1ez.mong
 
 const db='mongodb+srv://vaibhavdhaygude70:9766782373@cluster0.mpploro.mongodb.net/?retryWrites=true&w=majority'
 
-mongoose.connect(DB,{
+mongoose.connect(db,{
+    dbName:'users',
     useNewUrlParser: true,
     useUnifiedTopology: true,
     
