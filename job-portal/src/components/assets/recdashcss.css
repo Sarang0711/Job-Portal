@@ -40,7 +40,7 @@
     background-color: li;
     border-radius: 20px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding-left: 15px;
 }
@@ -84,7 +84,7 @@
     height: 55%;
     border-radius: 40px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     padding-left: 40px;
     align-items: center;
     

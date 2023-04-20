@@ -1,5 +1,4 @@
 import './App.css';
-import { useEffect, useState } from 'react';
 // import Login from './components/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
@@ -8,10 +7,6 @@ import Registerrecruit from './components/Recrutergister';
 import RecDash from './components/RecDash';
 import Homepage from './components/Homepage';
 
-
-
-
-const API_BASE = "http://localhost:3001";
 
 
 

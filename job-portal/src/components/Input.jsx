@@ -1,5 +1,4 @@
 import React from "react";
-import { isUserRegistered } from "../App";
 
 function Input(props) {
     return (

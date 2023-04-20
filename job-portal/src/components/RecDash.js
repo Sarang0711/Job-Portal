@@ -1,10 +1,7 @@
 import React from "react";
 import "./assets/recdashcss.css";
-import Input from "./Input";
-import {Link} from 'react';
 import { FaSearch } from "react-icons/fa";
 import {AiOutlineMenu } from "react-icons/ai";
-import Ladyback from "./assets/ladywalk.png"
 
 
 

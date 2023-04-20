@@ -1,23 +1,9 @@
 import React from "react";
-import Input from "./Input";
-import RecrutLogin from "./Recrutergister";
-import attributes from "./InputAttributes";
 import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
-import Dashboard from "./ApplicantDashboard";
 
 const API_BASE = "http://localhost:3001";
 
-
-function createInputElement(InputElement) {
-    return (
-        <Input 
-            key = {InputElement.id}
-            type = {InputElement.type}
-            placeholder = { InputElement.placeholder}
-        />
-    );
-}
 
 function Login(){
     const[users, setUsers] = useState([]); //stores data returned from database
@@ -26,13 +12,16 @@ function Login(){
     const[username, setUsername] = useState('');
     const[password, setPassword] = useState('');
     const[name, setName] = useState('');
-    const[isrecruter, setRecruter] = useState(false);
 
 
 
-    useEffect(() => {
+    // useEffect(() => {
+    //   GetUsers();  
+    // }, []);
+
+     useEffect(() => {
       GetUsers();  
-    }, []);
+    });
   
     const GetUsers = async () => {
        fetch(API_BASE + "/auth")
@@ -67,7 +56,7 @@ function Login(){
         console.log(inusername + ' - ' + userpass )
         
 
-        if(userpass == confirmepass){
+        if(userpass === confirmepass){
 
              setUsername(inusername);
              setPassword(userpass);   
@@ -149,7 +138,7 @@ function Login(){
                             >
                                 { isUserRegistered ? "Login" : "Register Me" }
                             </button>  
-                            {isUserRegistered ? <p>Don't have an account? <a onClick={() => { setisUserRegistered(false)}}>click here</a> to register</p> : <p>Already registered? <a onClick={()=> {setisUserRegistered(true)}}>click here</a> to login</p> }
+                            {isUserRegistered ? <p>Don't have an account? <a href="#." onClick={() => { setisUserRegistered(false)}}>click here</a> to register</p> : <p>Already registered? <a href="#." onClick={()=> {setisUserRegistered(true)}}>click here</a> to login</p> }
                             {isUserRegistered ? <p></p> : <p>
                             <Link to="/regirecruiter">Click here</Link>
                              to Register as Recruter</p> }

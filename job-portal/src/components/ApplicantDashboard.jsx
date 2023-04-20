@@ -3,8 +3,6 @@ import React from 'react';
 import "../components/assets/AppDash.css";
 import { NavLink } from 'react-router-dom';
 import {Nav, Navbar} from 'react-bootstrap';
-import {BrowserRouter as Router, Routes,  Route} from 'react-router-dom';
-import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import { NavDropdown } from 'react-bootstrap';
 function ApplicantDashboard() {
@@ -38,17 +36,3 @@ function ApplicantDashboard() {
 
 export default ApplicantDashboard;
 
-
-{/* <div className="applicant-dash">
-      <div className="app-nav">
-        <div className="logo">
-          <p><strong>Job Portal</strong></p>
-        </div>
-        <div className="nav-items">
-          <p>New Internship</p>
-          <p>Applied</p>
-          <p>Refer a Friend</p>
-          <p>Messages</p>
-        </div>
-      </div>
-    </div> */}
