@@ -21,6 +21,10 @@ const recregistrationSchema = new Schema({
 	roll : {
 		type: String,
 		default : false
+	},
+	email : {
+		type: String,
+		default : false
 	}
 });
 

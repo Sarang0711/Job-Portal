@@ -17,6 +17,7 @@ function Registerrecruit(){
         const [password, setPassword] = useState("");
         const [companyname, setComapanyname] = useState("");
         const [roll, setRoll] = useState("");
+        const [email, setEmail] = useState("");
         const [confirmpass, setConfirmpass] = useState("");
 
 
@@ -25,7 +26,7 @@ function Registerrecruit(){
             let result = await fetch(
             (API_BASE+'/auth/recregister'), {
                 method: "post",
-                body: JSON.stringify({ name, username,password,companyname,roll }),
+                body: JSON.stringify({ name, username,password,companyname,roll,email }),
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -40,6 +41,7 @@ function Registerrecruit(){
                 setRoll("");
                 setUsername("");
                 setConfirmpass("");
+                setEmail("");
             }
         }
     
@@ -54,7 +56,8 @@ function Registerrecruit(){
                 onChange={(e) => setComapanyname(e.target.value)}></input>
                 <input type="text" placeholder="Your Roll at Company" name='recnamee'  id="0" value={roll}
                 onChange={(e) => setRoll(e.target.value)}></input>
-
+                <input type="text" placeholder="Your Email" name='recnamee'  id="0" value={email}
+                onChange={(e) => setEmail(e.target.value)}></input>
                 <input type="text" placeholder="Select a Username" name='username'  id="1" value={username}
                 onChange={(e) => setUsername(e.target.value)}></input>
                 <input type="password" placeholder="Password" name= 'password'  id="2" value={password}

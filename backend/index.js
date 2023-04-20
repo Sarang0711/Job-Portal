@@ -45,9 +45,11 @@ app.post('/auth/recregister', (req, res) => {
         password: req.body.password,
         name : req.body.name,
         companyname : req.body.companyname,
-        roll : req.body.roll
+        roll : req.body.roll,
+        email : req.body.email
 
     });
+    console.log(newRecruter);
     newRecruter.save();
     res.json(newRecruter);
 })
