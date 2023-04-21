@@ -33,15 +33,27 @@ function Registerrecruit(){
             })
             result = await result.json();
             console.warn(result);
-            if (result) {
-                alert("Data saved succesfully");
-                setComapanyname("");
-                setName("");
-                setPassword("");
-                setRoll("");
-                setUsername("");
-                setConfirmpass("");
-                setEmail("");
+            console.log(result.error);
+            
+
+            if(result.error === "Please enter the details"){
+                alert("Please enter the details");
+            }else if(result.error === "Email alredy exist"){
+                alert("Email alredy exist");
+            }else if(result.error === "Username taken"){
+                alert("Username taken, Please Choose a different Username");
+            }else{
+                if (result) {
+                    alert("Registered Successfully, Please Login");
+                    setComapanyname("");
+                    setName("");
+                    setPassword("");
+                    setRoll("");
+                    setUsername("");
+                    setConfirmpass("");
+                    setEmail("");
+                    window.open("http://localhost:3000/login");
+                }
             }
         }
     
@@ -50,20 +62,20 @@ function Registerrecruit(){
     <div>
         <h2>Register as Recruter</h2>
         <form className="form">
-                <input type="text" placeholder="Your Name" name='recnamee'  id="0" value={name}
+                <input type="text" required placeholder="Your Name" name='recnamee'  id="0" value={name}
                  onChange={(e) => setName(e.target.value)}></input>
-                <input type="text" placeholder="Company Name" name='recnamee'  id="0" value={companyname}
+                <input type="text" required placeholder="Company Name" name='recnamee'  id="0" value={companyname}
                 onChange={(e) => setComapanyname(e.target.value)}></input>
-                <input type="text" placeholder="Your Roll at Company" name='recnamee'  id="0" value={roll}
+                <input type="text" required placeholder="Your Roll at Company" name='recnamee'  id="0" value={roll}
                 onChange={(e) => setRoll(e.target.value)}></input>
-                <input type="text" placeholder="Your Email" name='recnamee'  id="0" value={email}
+                <input type="text" required placeholder="Your Email" name='recnamee'  id="0" value={email}
                 onChange={(e) => setEmail(e.target.value)}></input>
-                <input type="text" placeholder="Select a Username" name='username'  id="1" value={username}
+                <input type="text" required placeholder="Select a Username" name='username'  id="1" value={username}
                 onChange={(e) => setUsername(e.target.value)}></input>
-                <input type="password" placeholder="Password" name= 'password'  id="2" value={password}
+                <input type="password" required placeholder="Password" name= 'password'  id="2" value={password}
                 onChange={(e) => setPassword(e.target.value)}></input>
 
-                <input type="password" placeholder="Confirm your Password" name= 'password'  id="2" value={confirmpass}
+                <input type="password" required placeholder="Confirm your Password" name= 'password'  id="2" value={confirmpass}
                 onChange={(e) => setConfirmpass(e.target.value)}></input>
             </form>
             <button type="submit"   onClick={handleOnSubmit}
