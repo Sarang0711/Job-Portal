@@ -1,5 +1,5 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const API_BASE = "http://localhost:3001";
@@ -15,22 +15,6 @@ function Login(){
 
 
 
-    // useEffect(() => {
-    //   GetUsers();  
-    // }, []);
-
-     useEffect(() => {
-      GetUsers();  
-    });
-  
-    const GetUsers = async () => {
-       fetch(API_BASE + "/auth")
-        .then(res => res.json())
-        .then(data => {setUsers(data) 
-            setUsername(users.username)
-            console.log(users.username)})
-        .catch(err => console.error("errors : " , err)); 
-    }
 
     function handleChange(event) {
         if(event.target.name === "username") {
@@ -62,10 +46,10 @@ function Login(){
              setPassword(userpass);   
              setName(inname);
             
-             if(users.some(item => (item.username === inusername))){
-                alert("User Already registered, Please Login");
-                return;
-            }
+            //  if(users.some(item => (item.username === inusername))){
+            //     alert("User Already registered, Please Login");
+            //     return;
+            // }
         }else{
             alert("Wrong passwords");
             return;
@@ -86,21 +70,30 @@ function Login(){
         console.log(data)
     }
 
-    function func (){
-        if(isUserRegistered){
-            console.log(users)
-            var inusername = document.getElementById('1').value;
-             var userpass = document.getElementById('2').value;
+    const func = async (e) => {
 
-             console.log(inusername + " - " + userpass);
-            if(users.some(item => (item.username === inusername) && (item.password === userpass))){
-                setUsername(inusername);
-                setPassword(userpass);
-                console.log('hogay are')
-                setisLoggedIn(true)
-            }else{
-                alert("Username or Password Wrong");
-            }
+        if(isUserRegistered){
+            var inusername = document.getElementById('1').value;
+            var userpass = document.getElementById('2').value;
+            console.log(" frontend : " + inusername + " - " + userpass);
+            
+               e.preventDefault();
+               let result = await fetch(
+               (API_BASE+'/auth'), {
+                   method: "post",
+                   body: JSON.stringify({ username : inusername,password : userpass }),
+                   headers: {
+                       'Content-Type': 'application/json'
+                   }
+               })
+               result = await result.json();
+               console.log(result.code);
+
+               if(result.code === 1){
+                    alert("Successfully Logged in");
+                    window.open("http://localhost:3000/dashboard");
+               }
+            
         }else{
            addUsers();  
 

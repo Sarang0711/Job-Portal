@@ -29,10 +29,27 @@ app.get('/jobs', async(req, res) => {
     res.json(data);
 })
 
-app.get('/auth', async(req, res) => {
-    res.json("yo");
-    // const data = await Auth.find();
-    // res.json(data);
+app.post('/auth', async(req, res) => {
+    console.log("accessed");
+    console.log("finding : " + req.body.username + " with password : " +req.body.password);
+
+
+    Auth.findOne({username : req.body.username})
+                .then((userNameExist) => {
+                    if(userNameExist){
+                        console.log("username exists");
+                        Auth.findOne({password : req.body.password})
+                            .then((userNameExist) => {
+                                if(userNameExist){
+                                    console.log("password matches ");
+                                    return res.status(200).json({code : 1});
+                                }
+                                
+                            }).catch(err => {console.log(err);});
+                    }
+                    
+                }).catch(err => {console.log(err);});
+    
 })
 
 app.post('/auth/register', (req, res) => {
@@ -46,16 +63,37 @@ app.post('/auth/register', (req, res) => {
 })
 
 app.post('/auth/recregister', (req, res) => {
-    const newRecruter = new Recregistration({
-        username: req.body.username,
-        password: req.body.password,
-        name : req.body.name,
-        companyname : req.body.companyname,
-        roll : req.body.roll
 
-    });
-    newRecruter.save();
-    res.json(newRecruter);
+    const {username, password, name, companyname, roll, email} = req.body;
+
+    if(!username || !password || !name || !companyname || !roll ||!email ){
+        console.log("Please the Enter details");
+
+        return res.status(422).json({error :"Please enter the details"});
+    }
+
+    Recregistration.findOne({email: email})
+        .then((userExist) => {
+            if(userExist){
+                return res.status(422).json({error : "Email alredy exist"})
+            }
+
+            Recregistration.findOne({username :username})
+                .then((userNameExist) => {
+                    if(userNameExist){
+                        return res.status(422).json({error :"Username taken"});
+                    }
+                    const newRecruter = new Recregistration({username,password,name,companyname,roll,email});
+                    console.log(newRecruter);
+                    newRecruter.save();
+                    res.json(newRecruter);
+                }).catch(err => {console.log(err);});
+        }).catch(err => {console.log(err);});
+
+
+
+
+
 })
 
 app.listen(3001, ()=> {
