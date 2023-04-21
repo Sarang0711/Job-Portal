@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const Auth = require('./models/auth');
 const Recregistration = require('./models/recregistration');
+const Jobs = require('./models/jobs');
 
 const app = express();
 app.use(express.json());
@@ -22,6 +23,11 @@ mongoose.connect(db,{
 
 
 
+app.get('/jobs', async(req, res) => {
+    // res.json("yo");
+    const data = await Jobs.find();
+    res.json(data);
+})
 
 app.get('/auth', async(req, res) => {
     res.json("yo");
