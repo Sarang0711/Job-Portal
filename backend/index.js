@@ -23,10 +23,27 @@ mongoose.connect(db,{
 
 
 
-app.get('/auth', async(req, res) => {
-    res.json("yo");
-    // const data = await Auth.find();
-    // res.json(data);
+app.post('/auth', async(req, res) => {
+    console.log("accessed");
+    console.log("finding : " + req.body.username + " with password : " +req.body.password);
+
+
+    Auth.findOne({username : req.body.username})
+                .then((userNameExist) => {
+                    if(userNameExist){
+                        console.log("username exists");
+                        Auth.findOne({password : req.body.password})
+                            .then((userNameExist) => {
+                                if(userNameExist){
+                                    console.log("password matches ");
+                                    return res.status(200).json({code : 1});
+                                }
+                                
+                            }).catch(err => {console.log(err);});
+                    }
+                    
+                }).catch(err => {console.log(err);});
+    
 })
 
 app.post('/auth/register', (req, res) => {
