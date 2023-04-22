@@ -87,6 +87,7 @@ function Login(){
                    }
                })
                result = await result.json();
+               console.log(result);
                console.log(result.code);
 
                if(result.code === 1){

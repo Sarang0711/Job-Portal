@@ -1,7 +1,6 @@
 import React from 'react';
 import '../components/assets/homepage.css';
 import { useState,useEffect } from "react";
-import { Link } from "react-router-dom";
 
 const API_BASE = "http://localhost:3001";
 // import { Link } from 'react-router-dom';
@@ -12,34 +11,38 @@ const API_BASE = "http://localhost:3001";
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function Homepage() {
-    const[jobs, setJobs] = useState([]);
+    const [jobs, setJobs] = useState([]);
   
         
-        const Getjobs = async () => {
-            fetch(API_BASE + "/jobs")
+        const Getjobs = async() => {
+            return fetch(API_BASE + "/jobs")
             .then(res => res.json())
             .then(data => {
-                // return data;
                 console.log(data);
-                setJobs(data);
+               return data;
                 
-                //  setUsername(users.username)
-                console.log(jobs)
                 })
             .catch(err => console.error("errors : " , err)); 
         }
-        // useEffect(()=>{
-        //     setJobs(Getjobs());
+
+       
+        useEffect(()=>{
+            Getjobs().then(data=>{
+                
+                setJobs(data)
+                
+            })
+            .catch(err=>{
+                console.log(err);
+            })
+        },[]);
+
+        // function set(){
         //     console.log(jobs);
-            // Getjobs().then(res=>{
-            //     console.log(res);
-            //     setJobs(res);
-            //     console.log(jobs)
-            // })
-            // .catch(err=>{
-            //     console.log('errors: ',err)
-            // })
-        // },[])
+        //     jobs.forEach((job)=>{
+        //         console.log(job.companyname);
+        //     })
+        // }
     
     
 return (
@@ -60,7 +63,19 @@ return (
     <br></br>
     <h2 className='jobshead'>Top Jobs </h2><br></br>
     <div className='jobcards'>
-        <div className="card">
+        
+        
+            {jobs.map((job)=>(
+                <div key={job.id} className="card">
+                    <h3 key={job.id}>{job.companyname} </h3>
+                    <h2 key={job.id}>{job.jobtitle}</h2>
+                    <h4 key={job.id}>{job.jobdesc} </h4>
+                </div>
+            ))}
+            
+            
+
+        {/* <div className="card">
             <h3>CompanyName </h3>
             <h2>Job Title</h2>
             <h4>Job Description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a iusto consequuntur vitae, nesciunt dolorem corrupti, aliquid maiores aliquam, deleniti veniam. Aut modi molestias perspiciatis, voluptatum saepe magnam autem nulla!</h4>
@@ -106,13 +121,7 @@ return (
             <h3>CompanyName </h3>
             <h2>Job Title</h2>
             <h4>Job Description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a iusto consequuntur vitae, nesciunt dolorem corrupti, aliquid maiores aliquam, deleniti veniam. Aut modi molestias perspiciatis, voluptatum saepe magnam autem nulla!</h4>
-        </div>
-
-        <div className="card">
-            <h3>CompanyName </h3>
-            <h2>Job Title</h2>
-            <h4>Job Description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium a iusto consequuntur vitae, nesciunt dolorem corrupti, aliquid maiores aliquam, deleniti veniam. Aut modi molestias perspiciatis, voluptatum saepe magnam autem nulla!</h4>
-        </div>
+        </div> */}
 
     </div>
     <br></br>
@@ -125,7 +134,7 @@ return (
 
 <div className="footer">
         <h2>Footer</h2>
-        <button onClick={Getjobs}>get</button>
+        
 </div>
 
 </div>
