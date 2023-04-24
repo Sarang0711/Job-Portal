@@ -5,12 +5,19 @@ import { NavLink } from 'react-router-dom';
 import {Nav, Navbar} from 'react-bootstrap';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import { NavDropdown } from 'react-bootstrap';
-function ApplicantDashboard() {
+function ApplicantDashboard(props) {
+
+  function tester(){
+    console.log(props);
+  }
+
   return (
     <>
       {/* <Router> */}
       <Navbar bg="light" className='custom-nav' >
         <Navbar.Brand href="/">Job Portal</Navbar.Brand>
+        <p onClick={tester}>Welcome {props.name} </p>
+
         {/* <NavbarToggle aria-controls='basic-navbar-nav'/> */}
         <NavbarCollapse id='basic-navbar-nav'>
           <Nav className='mx-auto'>

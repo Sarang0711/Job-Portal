@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const Auth = require('./models/auth');
 const Recregistration = require('./models/recregistration');
-const Jobs = require('./models/jobs');
 
 const app = express();
 app.use(express.json());
@@ -23,11 +22,6 @@ mongoose.connect(db,{
 
 
 
-app.get('/jobs', async(req, res) => {
-    // res.json("yo");
-    const data = await Jobs.find();
-    res.json(data);
-})
 
 app.post('/auth', async(req, res) => {
     console.log("accessed");
@@ -38,21 +32,13 @@ app.post('/auth', async(req, res) => {
                 .then((userNameExist) => {
                     if(userNameExist){
                         console.log("username exists");
-                        // Auth.findOne({password : req.body.password})
-                        //     .then((userNameExist) => {
-                        //         if(userNameExist){
-                        //             console.log("password matches ");
-                        //             return res.status(200).json({code : 1});
-                        //         }
-                                
-                        //     }).catch(err => {console.log(err);});
-                        Auth.find({username: req.body.username}, function(err, docs){
-                            if(err) console.log(err);
-                            else    console.log('show', {user: docs[0]});
-                        });
-                    }
+                        console.log(userNameExist.password);
+                        if(userNameExist.password === req.body.password){
+                            console.log("password matches ");
+                            return res.status(200).json({code : 1,name : userNameExist.name});
 
-                    
+                        }else res.status(401).json({code : 0});
+                    } 
                 }).catch(err => {console.log(err);});
     
 })
