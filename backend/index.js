@@ -38,15 +38,20 @@ app.post('/auth', async(req, res) => {
                 .then((userNameExist) => {
                     if(userNameExist){
                         console.log("username exists");
-                        Auth.findOne({password : req.body.password})
-                            .then((userNameExist) => {
-                                if(userNameExist){
-                                    console.log("password matches ");
-                                    return res.status(200).json({code : 1});
-                                }
+                        // Auth.findOne({password : req.body.password})
+                        //     .then((userNameExist) => {
+                        //         if(userNameExist){
+                        //             console.log("password matches ");
+                        //             return res.status(200).json({code : 1});
+                        //         }
                                 
-                            }).catch(err => {console.log(err);});
+                        //     }).catch(err => {console.log(err);});
+                        Auth.find({username: req.body.username}, function(err, docs){
+                            if(err) console.log(err);
+                            else    console.log('show', {user: docs[0]});
+                        });
                     }
+
                     
                 }).catch(err => {console.log(err);});
     
