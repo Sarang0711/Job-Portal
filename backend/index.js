@@ -44,13 +44,31 @@ app.post('/auth', async(req, res) => {
 })
 
 app.post('/auth/register', (req, res) => {
-    const newUser = new Auth({
-        username: req.body.username,
-        password: req.body.password,
-        name : req.body.name
-    });
-    newUser.save();
-    res.json(newUser);
+
+    const {username, password, name} = req.body;
+    if(!username || !password || !name ){
+        console.log("Please the Enter details");
+
+        return res.status(422).json({code : 0});
+    }
+
+    Auth.findOne({username : username})
+    .then((userExist) => {
+        if(userExist){
+            return res.status(422).json({code: 2, error : "Email alredy exist"})
+        }
+
+        const newUser = new Auth({username,password,name});
+        console.log(newUser);
+        
+        newUser.save();
+        res.json(newUser);
+        
+    }).catch(err => {console.log(err);});
+
+
+
+
 })
 
 app.post('/auth/recregister', (req, res) => {

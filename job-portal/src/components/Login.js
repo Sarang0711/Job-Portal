@@ -22,7 +22,7 @@ function Login(props){
         }
         else if(event.target.name === 'name'){
             var tempname = event.target.value;
-            props.setName(tempname);
+            props.setNames(tempname);
         }
 
     }
@@ -39,14 +39,16 @@ function Login(props){
 
             props.setUsernames(inusername);
              setPassword(userpass);   
-             props.changeName(inname);
+             props.setNames(inname);
 
         }else{
             alert("Wrong passwords");
             return;
         }
         console.log(props.username+"-"+password);
-        const data = await fetch(API_BASE + "/auth/register",{
+
+
+        let data = await fetch(API_BASE + "/auth/register",{
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"
@@ -56,7 +58,23 @@ function Login(props){
                 password : password,
                 name : props.name
             })
-        }).then(res => res.json());
+            
+        })
+            data = await data.json();
+            console.log(data);
+            console.log(data.code);
+
+            if(data.code === 0){
+                alert("Please Enter all details");
+            }else if(data.code === 2){
+                alert("Please Enter a different Username")
+            }else{
+                alert("Successfully Registered in");
+                // props.setIsLoggedIns();
+                props.setNames(inname);
+                console.log(props.name);
+                props.setisUserRegistered(1);
+            } 
 
         console.log(data)
     }
@@ -79,7 +97,7 @@ function Login(props){
                })
                result = await result.json();
                console.log(result);
-               console.log(result.code);
+               console.log(result.name);
 
                if(result.code === 1){
                     alert("Successfully Logged in");
@@ -92,6 +110,7 @@ function Login(props){
                }
             
         }else{
+            console.log("registering")
            addUsers();  
         }
         

@@ -16,7 +16,7 @@ function App() {
   const[isloggedin, setIsLoggedIn] = useState(false);
   const[isUserRegistered, setisUserRegistered] = useState(true);
   const[username, setUsername] = useState('');
-  const[name, setName] = useState('');
+  const[name, setName] = useState('User');
 
   function changeisLoggedIN(){
     setIsLoggedIn(true);
@@ -31,6 +31,7 @@ function App() {
   }
 
   function changeName(value){
+    console.log("value : " + value);
     setName(value);
     console.log("changed to :" + name);
   }
