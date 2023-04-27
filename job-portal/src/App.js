@@ -50,8 +50,6 @@ function App() {
         <Route path="/regirecruiter" element={<Registerrecruit />} />
         <Route path="/login/recdash" element={<RecDash />} />
         <Route exact path="/" element={<Homepage />} />
-
-
       </Routes>
     </Router>
     </div>

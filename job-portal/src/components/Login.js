@@ -68,9 +68,11 @@ function Login(props){
                 alert("Please Enter all details");
             }else if(data.code === 2){
                 alert("Please Enter a different Username")
+            }else if(data.code === 4){
+                alert("Username not found");
             }else{
                 alert("Successfully Registered in");
-                // props.setIsLoggedIns();
+                props.setIsLoggedIns();
                 props.setNames(inname);
                 console.log(props.name);
                 props.setisUserRegistered(1);
@@ -104,11 +106,18 @@ function Login(props){
                     props.setIsLoggedIns();
                     props.setNames(result.name);
                     console.log(props.name);
-                    window.open("http://localhost:3000/dashboard");
+                    console.log(result.isRec);
+                    if(result.isRec === 1){
+                        window.open("http://localhost:3000/login/recdash");
+                    }else{
+                        window.open("http://localhost:3000/dashboard");
+                    }
                }else if(result.code === 0){
                     alert("Username or password does not match");
+               }else if(result.code === 4){
+                    alert("Username not found")
                }
-            
+
         }else{
             console.log("registering")
            addUsers();  
