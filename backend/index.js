@@ -24,9 +24,7 @@ mongoose.connect(db,{
 
 
 app.post('/auth', async(req, res) => {
-    console.log("accessed");
     console.log("finding : " + req.body.username + " with password : " +req.body.password);
-
 
     Auth.findOne({username : req.body.username})
                 .then((userNameExist) => {
@@ -39,9 +37,26 @@ app.post('/auth', async(req, res) => {
 
                         }else res.status(401).json({code : 0});
                     } 
+
                 }).catch(err => {console.log(err);});
+
+    Recregistration.findOne({username : req.body.username})
+    .then((userNameExist) => {
+        if(userNameExist){
+            console.log("username exists");
+            console.log(userNameExist.password);
+            if(userNameExist.password === req.body.password){
+                console.log("password matches ");
+                return res.status(200).json({code : 1,name : userNameExist.name});
+
+            }else res.status(401).json({code : 0});
+        } 
+
+    }).catch(err => {console.log(err);});
+
     
 })
+
 
 app.post('/auth/register', (req, res) => {
 
@@ -65,7 +80,6 @@ app.post('/auth/register', (req, res) => {
         res.json(newUser);
         
     }).catch(err => {console.log(err);});
-
 
 
 
