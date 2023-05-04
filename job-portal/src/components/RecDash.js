@@ -2,18 +2,32 @@ import React from "react";
 import "./assets/recdashcss.css";
 import { FaSearch } from "react-icons/fa";
 import {AiOutlineMenu } from "react-icons/ai";
-
-
+import Newjobpop from "./Newjobpop" ;
+import { useState } from "react";
 
 
 
 function RecDash() {
+  const[poped, setPoped] = useState(false);
 
-
+  function postajob(){
+    alert("job posted")
+  }
+ 
 
     return (
+
       <div className="container-rec">
-        <div className="recnav">
+
+        {poped ? 
+          <div className="popupconatiner">
+            <Newjobpop postjob={postajob} />
+          </div>   
+        :
+        <></>
+      } 
+
+        <div className="recnav" >
             <div className="recnav-nav">
                 <p><strong>Job Portal</strong></p>
 
@@ -36,7 +50,7 @@ function RecDash() {
                   <p>Post a</p>
                   <div className="postbtn">
                     <button>Internship</button>
-                    <button>Job</button>
+                    <button onClick={postajob()}>Job</button>
                     <button>View Applicants</button>
                   </div>
                 </div>
@@ -47,7 +61,7 @@ function RecDash() {
         <p className="urdash">Your</p>
         <p className="urdash">Dashboard</p>
 
-        <div className="dashcontainer">
+        <div className="dashcontainer" >
             <div className="appliedcontainer widget">
                 <p className="heading">Number of Applicants</p>
                 <p className="number">55</p>
