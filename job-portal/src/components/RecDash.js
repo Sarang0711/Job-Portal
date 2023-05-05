@@ -11,7 +11,11 @@ function RecDash() {
   const[poped, setPoped] = useState(false);
 
   function postajob(){
-    alert("job posted")
+    if(poped){
+      setPoped(false);
+    }else{
+      setPoped(true);
+    }
   }
  
 
@@ -50,7 +54,7 @@ function RecDash() {
                   <p>Post a</p>
                   <div className="postbtn">
                     <button>Internship</button>
-                    <button onClick={postajob()}>Job</button>
+                    <button onClick={() => {postajob()}}>Job</button>
                     <button>View Applicants</button>
                   </div>
                 </div>
