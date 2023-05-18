@@ -15,6 +15,7 @@ function Homepage() {
   
         
         const Getjobs = async() => {
+            console.log('inn getjob')
             return fetch(API_BASE + "/jobs")
             .then(res => res.json())
             .then(data => {
@@ -65,13 +66,13 @@ return (
     <div className='jobcards'>
         
         
-            {jobs.map((job)=>(
+            {/* {jobs.map((job)=>(
                 <div key={job.id} className="card">
                     <h3 key={job.id}>{job.companyname} </h3>
                     <h2 key={job.id}>{job.jobtitle}</h2>
                     <h4 key={job.id}>{job.jobdesc} </h4>
                 </div>
-            ))}
+            ))} */}
             
             
 

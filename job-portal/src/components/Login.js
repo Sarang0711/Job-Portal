@@ -92,10 +92,14 @@ function Login(props){
                let result = await fetch(
                (API_BASE+'/auth'), {
                    method: "post",
-                   body: JSON.stringify({ username : inusername,password : userpass }),
+                   
                    headers: {
                        'Content-Type': 'application/json'
-                   }
+                   }, body : JSON.stringify({
+                    username : inusername,
+                    password : userpass
+                    
+                })
                })
                result = await result.json();
                console.log(result);

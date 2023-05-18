@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const Auth = require('./models/auth');
 const Recregistration = require('./models/recregistration');
+const Jobs =require('./models/jobs')
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+// var router = express.Router();
 const DB = 'mongodb+srv://applicationbackend:carontree@jobportalapi.2mlp1ez.mongodb.net/jobportaldb?retryWrites=true&w=majority';
 
 const db='mongodb+srv://vaibhavdhaygude70:9766782373@cluster0.mpploro.mongodb.net/?retryWrites=true&w=majority'
@@ -84,6 +86,13 @@ app.post('/auth/register', (req, res) => {
 
 
 
+})
+
+app.post('/jobs',(req,res)=>{
+    console.log("inn")
+    Jobs.find().then((data)=>{
+        data=res.json(data)
+    }).then(()=>console.log(data))
 })
 
 app.post('/auth/recregister', (req, res) => {
