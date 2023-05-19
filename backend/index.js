@@ -88,11 +88,14 @@ app.post('/auth/register', (req, res) => {
 
 })
 
-app.post('/jobs',(req,res)=>{
-    console.log("inn")
-    Jobs.find().then((data)=>{
-        data=res.json(data)
-    }).then(()=>console.log(data))
+app.get('/jobs',async(req,res)=>{
+    console.log("Fetching");
+    // Jobs.find().then((data)=>{
+    //     data=res.json(data)
+    // }).then(()=>console.log(data))
+    const response = await Jobs.find()
+    console.log('response', response)
+    res.send(response)
 })
 
 app.post('/auth/recregister', (req, res) => {

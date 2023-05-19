@@ -1,6 +1,7 @@
 import React from 'react';
 import '../components/assets/homepage.css';
 import { useState,useEffect } from "react";
+// import axios from "axios";
 
 const API_BASE = "http://localhost:3001";
 // import { Link } from 'react-router-dom';
@@ -10,26 +11,48 @@ const API_BASE = "http://localhost:3001";
 // import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function Homepage() {
+function Homepage(props) {
     const [jobs, setJobs] = useState([]);
+
+    // const Getjobs=axios({
+  
+    //     // Endpoint to send files
+    //     url: "http://localhost:3001/jobs",
+    //     method: "POST",
+    //     headers: {
+    
+    //       // Add any auth token here
+    //       authorization: "your token comes here",
+    //     }
+    
+        
+    //   })
+    
+        // Handle the response from backend here
+        // .then((res) => {console.log(res) })
   
         
         const Getjobs = async() => {
             console.log('inn getjob')
-            return fetch(API_BASE + "/jobs")
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-               return data;
+            const res=await fetch(API_BASE + "/jobs")
+            // console.log(response);
+            const response = await res.json();
+            console.log(response)
+            
+            return response;
+            // .then(res =>console.log(res.json()))
+            // .then(data => {
+            //     console.log(data);
+            //    return data;
                 
-                })
-            .catch(err => console.error("errors : " , err)); 
+            //     })
+            // .catch(err => console.log("errors : " , err)); 
         }
 
        
         useEffect(()=>{
             Getjobs().then(data=>{
-                
+                // console.log(data);
                 setJobs(data)
                 
             })
@@ -37,6 +60,13 @@ function Homepage() {
                 console.log(err);
             })
         },[]);
+
+        function apply(){
+            console.log(props.isloggedin)
+            if (props.isloggedin){
+                console.log('loggedinn')
+            }
+        }
 
         // function set(){
         //     console.log(jobs);
@@ -66,13 +96,16 @@ return (
     <div className='jobcards'>
         
         
-            {/* {jobs.map((job)=>(
+            {jobs.map((job)=>(
                 <div key={job.id} className="card">
                     <h3 key={job.id}>{job.companyname} </h3>
                     <h2 key={job.id}>{job.jobtitle}</h2>
-                    <h4 key={job.id}>{job.jobdesc} </h4>
+                    <h4 key={job.id}>{job.jobdesc} 
+                    <button onClick={apply}>Apply</button>
+                    </h4>
+                    
                 </div>
-            ))} */}
+            ))} 
             
             
 

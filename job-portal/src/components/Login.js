@@ -74,7 +74,7 @@ function Login(props){
                 alert("Successfully Registered in");
                 props.setIsLoggedIns();
                 props.setNames(inname);
-                console.log(props.name);
+                // console.log(props.name);
                 props.setisUserRegistered(1);
             } 
 
@@ -107,6 +107,7 @@ function Login(props){
 
                if(result.code === 1){
                     alert("Successfully Logged in");
+                    console.log(props.isLoggedIn)
                     props.setIsLoggedIns();
                     props.setNames(result.name);
                     console.log(props.name);
