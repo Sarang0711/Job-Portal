@@ -108,7 +108,7 @@ function Login(props){
                if(result.code === 1){
                     alert("Successfully Logged in");
                     console.log(props.isLoggedIn)
-                    props.setIsLoggedIns();
+                    props.setIsLoggedIns(true);
                     props.setNames(result.name);
                     console.log(props.name);
                     console.log(result.isRec);

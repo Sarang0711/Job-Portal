@@ -49,7 +49,7 @@ function App() {
         <Route path="/dashboard" element={ <ApplicantDashboard name={name}/> }/>
         <Route path="/regirecruiter" element={<Registerrecruit />} />
         <Route path="/login/recdash" element={<RecDash />} />
-        <Route exact path="/" element={<Homepage />} />
+        <Route exact path="/" element={<Homepage isloggedin={isloggedin}/>} />
       </Routes>
     </Router>
     </div>
