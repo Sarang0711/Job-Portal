@@ -33,6 +33,7 @@ function App() {
   function changeName(value){
     console.log("value : " + value);
     setName(value);
+    setName("Pratham");
     console.log("changed to :" + name);
   }
 

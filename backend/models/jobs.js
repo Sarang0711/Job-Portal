@@ -13,6 +13,10 @@ const jobs = new Schema({
 	jobdesc : {
 		type: String,
 		default : false
+	},
+	recruter :{
+		type: String,
+		default :false
 	}
 });
 
