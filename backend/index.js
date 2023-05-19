@@ -88,6 +88,30 @@ app.post('/auth/register', (req, res) => {
 
 })
 
+app.post('/auth/postajob', (req, res) => {
+    const {companyname, jobtitle, jobdesc} = req.body;
+    if(!companyname || !jobtitle || !jobdesc ){
+        console.log("Please the Enter details");
+
+        return res.status(422).json({code : 0});
+    }
+
+
+
+        const newJob = new Jobs({companyname, jobtitle, jobdesc});
+        console.log(newJob);
+        
+        newJob.save();
+        return res.status(422).json({code : 1});
+
+        // res.json(newUser);
+        
+
+
+
+
+})
+
 app.get('/jobs',async(req,res)=>{
     console.log("Fetching");
     // Jobs.find().then((data)=>{

@@ -4,14 +4,49 @@ import { FaSearch } from "react-icons/fa";
 import {AiOutlineMenu } from "react-icons/ai";
 import Newjobpop from "./Newjobpop" ;
 import { useState } from "react";
+const API_BASE = "http://localhost:3001";
 
 
 
 function RecDash() {
   const[poped, setPoped] = useState(false);
+  const [companyname, setcompanyname] = useState("");
+  const [jobtitle, setJobTitle] = useState("");
+  const [jobdesc, setJobdesc] = useState("");
+
+
+  const handleOnSubmit = async (e) => {
+    // e.preventDefault();
+    console.log(JSON.stringify({companyname,jobtitle,jobdesc }));
+    let result = await fetch(
+    (API_BASE+'/auth/postajob'), {
+        method: "post",
+        body: JSON.stringify({companyname,jobtitle,jobdesc }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    result = await result.json();
+    console.warn(result);
+    console.log(result.code);
+    
+
+    if(result.code === 0){
+        alert("Please enter the details");
+    }else{
+        if (result) {
+            alert("Posted a New Job");
+            setJobTitle("");
+            setJobdesc("");
+            setcompanyname("");
+        }
+    }
+}
 
   function postajob(){
     if(poped){
+      console.log("Posting a job");
+      handleOnSubmit();
       setPoped(false);
     }else{
       setPoped(true);
@@ -25,7 +60,7 @@ function RecDash() {
 
         {poped ? 
           <div className="popupconatiner">
-            <Newjobpop postjob={postajob} />
+            <Newjobpop postjob={postajob} companyname={companyname} jobtitle={jobtitle} jobdesc={jobdesc} setcompanyname={setcompanyname} setJobTitle={setJobTitle} setJobdesc={setJobdesc}/>
           </div>   
         :
         <></>
