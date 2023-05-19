@@ -4,7 +4,7 @@ const cors = require('cors');
 const Auth = require('./models/auth');
 const Recregistration = require('./models/recregistration');
 const Jobs =require('./models/jobs')
-
+const Intership = require('./models/internship')
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -92,25 +92,25 @@ app.post('/auth/postajob', (req, res) => {
     const {companyname, jobtitle, jobdesc} = req.body;
     if(!companyname || !jobtitle || !jobdesc ){
         console.log("Please the Enter details");
-
         return res.status(422).json({code : 0});
     }
-
-
-
-        const newJob = new Jobs({companyname, jobtitle, jobdesc});
-        console.log(newJob);
-        
-        newJob.save();
-        return res.status(422).json({code : 1});
-
-        // res.json(newUser);
-        
-
-
-
-
+    const newJob = new Jobs({companyname, jobtitle, jobdesc});
+    console.log(newJob);
+    newJob.save();
+    return res.status(422).json({code : 1});
 })
+app.post('/auth/postaintenship', (req, res) => {
+    const {companyname, jobtitle, jobdesc} = req.body;
+    if(!companyname || !jobtitle || !jobdesc ){
+        console.log("Please the Enter details");
+        return res.status(422).json({code : 0});
+    }
+    const newJob = new Intership({companyname, jobtitle, jobdesc});
+    console.log(newJob);
+    newJob.save();
+    return res.status(422).json({code : 1});
+})
+
 
 app.get('/jobs',async(req,res)=>{
     console.log("Fetching");

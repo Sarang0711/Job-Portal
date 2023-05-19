@@ -40,15 +40,12 @@ function App() {
 
   return (
     <div className="container">
-     
-
-
       <Router>
       <Routes>
         <Route path="/login"  element={ <Login name={name} setNames={changeName} username={username} setUsernames={changeUserName} isloggedin={isloggedin} setIsLoggedIns={changeisLoggedIN} isUserRegistered={isUserRegistered} setisUserRegistered={changeIsUserRegistered} /> }/>
         <Route path="/dashboard" element={ <ApplicantDashboard name={name}/> }/>
         <Route path="/regirecruiter" element={<Registerrecruit />} />
-        <Route path="/login/recdash" element={<RecDash />} />
+        <Route path="/login/recdash" element={<RecDash name={name} username={username} />} />
         <Route exact path="/" element={<Homepage isloggedin={isloggedin}/>} />
       </Routes>
     </Router>

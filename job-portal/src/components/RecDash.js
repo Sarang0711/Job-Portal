@@ -13,19 +13,33 @@ function RecDash() {
   const [companyname, setcompanyname] = useState("");
   const [jobtitle, setJobTitle] = useState("");
   const [jobdesc, setJobdesc] = useState("");
-
+  const [isitInternship, setIsitIntership] = useState(false);
 
   const handleOnSubmit = async (e) => {
     // e.preventDefault();
     console.log(JSON.stringify({companyname,jobtitle,jobdesc }));
-    let result = await fetch(
-    (API_BASE+'/auth/postajob'), {
-        method: "post",
-        body: JSON.stringify({companyname,jobtitle,jobdesc }),
-        headers: {
-            'Content-Type': 'application/json'
+    let result;
+    if(isitInternship){
+      result = await fetch(
+        (API_BASE+'/auth/postaintenship'), {
+            method: "post",
+            body: JSON.stringify({companyname,jobtitle,jobdesc }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
         }
-    })
+        )
+    }else{
+      result = await fetch(
+        (API_BASE+'/auth/postajob'), {
+            method: "post",
+            body: JSON.stringify({companyname,jobtitle,jobdesc }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        )
+    }
     result = await result.json();
     console.warn(result);
     console.log(result.code);
@@ -35,7 +49,11 @@ function RecDash() {
         alert("Please enter the details");
     }else{
         if (result) {
+          if(isitInternship){
+            alert("Posted a new Internship");
+          }else{
             alert("Posted a New Job");
+          }
             setJobTitle("");
             setJobdesc("");
             setcompanyname("");
@@ -46,13 +64,14 @@ function RecDash() {
   function postajob(){
     if(poped){
       console.log("Posting a job");
-      handleOnSubmit();
+      handleOnSubmit(isitInternship);
       setPoped(false);
     }else{
       setPoped(true);
     }
   }
- 
+
+
 
     return (
 
@@ -60,7 +79,7 @@ function RecDash() {
 
         {poped ? 
           <div className="popupconatiner">
-            <Newjobpop postjob={postajob} companyname={companyname} jobtitle={jobtitle} jobdesc={jobdesc} setcompanyname={setcompanyname} setJobTitle={setJobTitle} setJobdesc={setJobdesc}/>
+            <Newjobpop isitInternship={isitInternship} postjob={postajob} companyname={companyname} jobtitle={jobtitle} jobdesc={jobdesc} setcompanyname={setcompanyname} setJobTitle={setJobTitle} setJobdesc={setJobdesc}/>
           </div>   
         :
         <></>
@@ -88,8 +107,8 @@ function RecDash() {
                 <div className="innerholder">
                   <p>Post a</p>
                   <div className="postbtn">
-                    <button>Internship</button>
-                    <button onClick={() => {postajob()}}>Job</button>
+                    <button onClick={()=>{postajob();setIsitIntership(true)}}>Internship</button>
+                    <button onClick={() => {postajob();setIsitIntership(false)}}>Job</button>
                     <button>View Applicants</button>
                   </div>
                 </div>
