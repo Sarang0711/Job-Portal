@@ -65,3 +65,11 @@
     overflow-y: scroll;
     padding-top: 10px;
 }
+
+.filter::-webkit-scrollbar {
+    display: none;
+  }
+  .filter {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
