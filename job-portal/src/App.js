@@ -19,8 +19,9 @@ function App() {
   const[username, setUsername] = useState('');
   const[name, setName] = useState('User');
 
-  const {isloggedin, changeisLoggedIN} = useContext(LoginContext);
+  const {isloggedin, changeisLoggedIN, applied} = useContext(LoginContext);
   console.log("Login status", isloggedin);
+  console.log(applied)
 
 
   // function changeisLoggedIN(){
@@ -52,7 +53,7 @@ function App() {
       <Router>
       <Routes>
         <Route path="/login"  element={ <Login name={name} setNames={changeName} username={username} setUsernames={changeUserName} isloggedin={isloggedin} setIsLoggedIns={changeisLoggedIN} isUserRegistered={isUserRegistered} setisUserRegistered={changeIsUserRegistered} /> }/>
-        <Route path="/dashboard" element={ <ApplicantDashboard name={name}/> }/>
+        <Route path="/dashboard" element={ <ApplicantDashboard/> }/>
         <Route path="/regirecruiter" element={<Registerrecruit />} />
         <Route path="/login/recdash" element={<RecDash name={name} username={username} />} />
         <Route path="/login/recdash/viewapplicants" element={<ViewApplicants />} />
