@@ -5,11 +5,40 @@ import { NavLink } from 'react-router-dom';
 import {Nav, Navbar} from 'react-bootstrap';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import { NavDropdown } from 'react-bootstrap';
+import {useState,useEffect} from 'react'
+
+const API_BASE = "http://localhost:3001";
+
 function ApplicantDashboard(props) {
+  const [jobs, setJobs] = useState([]);
+
+  const Getjobs = async() => {
+    console.log('inn getjob')
+    const res=await fetch(API_BASE + "/jobs")
+    // console.log(response);
+    const response = await res.json();
+    console.log(response)
+    
+    return response;
+}
+
+  useEffect(()=>{
+    Getjobs().then(data=>{
+        // console.log(data);
+        setJobs(data)
+        
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+},[]);
 
   function tester(){
     console.log(props);
   }
+    
+
+  
 
   return (
     <>
@@ -36,6 +65,22 @@ function ApplicantDashboard(props) {
           </Nav>
         </NavbarCollapse>
       </Navbar>
+
+      <div className='jobcards'>
+        
+        
+            {jobs.map((job)=>(
+                <div key={job.id} className="card">
+                    <h3 key={job.id}>{job.companyname} </h3>
+                    <h2 key={job.id}>{job.jobtitle}</h2>
+                    <h4 key={job.id}>{job.jobdesc} 
+                    <button >Apply</button>
+                    </h4>
+                    
+                </div>
+            ))} 
+      </div>    
+
       {/* </Router> */}
     </>
   )

@@ -18,7 +18,10 @@ function App() {
   const[username, setUsername] = useState('');
   const[name, setName] = useState('User');
 
+  
   function changeisLoggedIN(){
+   
+    
     setIsLoggedIn(true);
   }
 
@@ -49,9 +52,10 @@ function App() {
         <Route path="/dashboard" element={ <ApplicantDashboard name={name}/> }/>
         <Route path="/regirecruiter" element={<Registerrecruit />} />
         <Route path="/login/recdash" element={<RecDash />} />
-        <Route exact path="/" element={<Homepage isloggedin={isloggedin}/>} />
+        <Route exact path="/" element={<Homepage key={isloggedin} isloggedin={isloggedin}/>} />
       </Routes>
     </Router>
+    
     </div>
       
   );

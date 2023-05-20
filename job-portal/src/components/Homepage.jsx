@@ -13,6 +13,7 @@ const API_BASE = "http://localhost:3001";
 
 function Homepage(props) {
     const [jobs, setJobs] = useState([]);
+    const [login,setLogin]=useState(props.isloggedin)
 
     // const Getjobs=axios({
   
@@ -60,6 +61,10 @@ function Homepage(props) {
                 console.log(err);
             })
         },[]);
+        // useEffect(()=>{
+        //     setLogin(props.isloggedin)
+        //     console.log(login)
+        // },[props.isloggedin])
 
         function apply(){
             console.log(props.isloggedin)
