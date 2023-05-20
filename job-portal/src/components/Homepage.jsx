@@ -1,6 +1,7 @@
 import React from 'react';
 import '../components/assets/homepage.css';
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
+import LoginContext from './GlobalContext';
 // import axios from "axios";
 
 const API_BASE = "http://localhost:3001";
@@ -13,7 +14,9 @@ const API_BASE = "http://localhost:3001";
 
 function Homepage(props) {
     const [jobs, setJobs] = useState([]);
-
+    
+    const {isloggedin, changeisLoggedIN} = useContext(LoginContext);
+    console.log("Login at homepage",isloggedin);
     // const Getjobs=axios({
   
     //     // Endpoint to send files
@@ -62,9 +65,16 @@ function Homepage(props) {
         },[]);
 
         function apply(){
-            console.log(props.isloggedin)
-            if (props.isloggedin){
-                console.log('loggedinn')
+            // console.log(props.isloggedin)
+            // if (props.isloggedin){
+            //     console.log('loggedinn')
+            // }
+            if(isloggedin) {
+                console.log('you can apply: login status',isloggedin )
+            }
+            else{
+                window.open('http://localhost:3000/login')
+                console.log("please login")
             }
         }
 

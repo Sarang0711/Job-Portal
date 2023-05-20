@@ -1,15 +1,17 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import LoginContext from "./GlobalContext";
+
+
 
 const API_BASE = "http://localhost:3001";
 
 
 function Login(props){
     const[password, setPassword] = useState('');
-
-
-
+  const {isloggedin, changeisLoggedIN} = useContext(LoginContext);
+    
 
     function handleChange(event) {
         if(event.target.name === "username") {
@@ -108,8 +110,10 @@ function Login(props){
                if(result.code === 1){
                     alert("Successfully Logged in");
                     console.log(props.isLoggedIn)
-                    props.setIsLoggedIns(true);
+                    // props.setIsLoggedIns(true);
+                    changeisLoggedIN();
                     props.setNames(result.name);
+                    console.log("login after successful", isloggedin);
                     console.log(props.name);
                     console.log(result.isRec);
                     if(result.isRec === 1){
