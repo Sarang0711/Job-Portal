@@ -4,7 +4,7 @@ const cors = require('cors');
 const Auth = require('./models/auth');
 const Recregistration = require('./models/recregistration');
 const Jobs =require('./models/jobs')
-
+const Intership = require('./models/internship')
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -88,13 +88,61 @@ app.post('/auth/register', (req, res) => {
 
 })
 
+app.post('/auth/postajob', (req, res) => {
+    const {companyname, jobtitle, jobdesc,recruter} = req.body;
+    if(!companyname || !jobtitle || !jobdesc ){
+        console.log("Please the Enter details");
+        return res.status(422).json({code : 0});
+    }
+    const newJob = new Jobs({companyname, jobtitle, jobdesc,recruter});
+    console.log(newJob);
+    newJob.save();
+    return res.status(422).json({code : 1});
+})
+app.post('/auth/postaintenship', (req, res) => {
+    const {companyname, jobtitle, jobdesc,recruter} = req.body;
+    if(!companyname || !jobtitle || !jobdesc ){
+        console.log("Please the Enter details");
+        return res.status(422).json({code : 0});
+    }
+    const newJob = new Intership({companyname, jobtitle, jobdesc,recruter});
+    console.log(newJob);
+    newJob.save();
+    return res.status(422).json({code : 1});
+})
+
+
 app.get('/jobs',async(req,res)=>{
-    console.log("Fetching");
+    // console.log("Fetching");
     // Jobs.find().then((data)=>{
     //     data=res.json(data)
     // }).then(()=>console.log(data))
     const response = await Jobs.find()
-    console.log('response', response)
+    // console.log('response', response)
+    res.send(response)
+})
+
+app.get('/newUsersCounts',async(req,res)=>{
+    console.log("Fetching");
+    const response = await Auth.count();
+    console.log('response', response); 
+    return res.status(200).json({count : response});
+
+})
+
+app.get('/getJobPostedCounts',async(req,res)=>{
+    console.log("Fetching");
+    var totalCount = 0;
+    var response = await Jobs.find({recruter : 'knob'});
+    totalCount += response.length;
+    var response = await Intership.find({recruter : 'knob'});
+    totalCount += response.length;
+    return res.status(200).json({count : totalCount});
+
+})
+
+app.get('/getApplicants',async(req,res)=>{
+    const response = await Auth.find()
     res.send(response)
 })
 

@@ -3,21 +3,134 @@ import "./assets/recdashcss.css";
 import { FaSearch } from "react-icons/fa";
 import {AiOutlineMenu } from "react-icons/ai";
 import Newjobpop from "./Newjobpop" ;
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import { Link } from "react-router-dom";
+const API_BASE = "http://localhost:3001";
 
 
 
-function RecDash() {
+function RecDash(props) {
   const[poped, setPoped] = useState(false);
+  const [companyname, setcompanyname] = useState("");
+  const [jobtitle, setJobTitle] = useState("");
+  const [jobdesc, setJobdesc] = useState("");
+  const [isitInternship, setIsitIntership] = useState(false);
+  const [displayName, setDisplayName] = useState("User")
+  const [NewUsersCount, setNewUsersCount] = useState('#')
+  const [recruter, setRecruter] = useState("User");
+  const [OpportunitiesPostedCount,setOpportunitiesPostedCount] = useState('#')
+  // UNCOMMENT BELOW USEEFFECT TO UNLOCK COUNTING FEATURE
+  useEffect(()=>{
+    getNewUsers().then(data=>{
+        setNewUsersCount(data)
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+    getNumberOfJobsPosted().then(data=>{
+      setOpportunitiesPostedCount(data)
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+  // Retrieve the object from the storage
+  const storeData = localStorage.getItem("userData");
+  // console.log("data: ", JSON.parse(storeData));
+  setDisplayName(JSON.parse(storeData).name);
+  setRecruter(JSON.parse(storeData).username);
+
+  } ,[]);
+
+
+
+
+  const getNewUsers = async () => {
+    const res=await fetch(API_BASE + "/newUsersCounts")
+    // console.log(response);
+    const response = await res.json();    
+    return response.count;
+  }
+
+  const getNumberOfJobsPosted = async () => {
+    const res=await fetch(API_BASE + "/getJobPostedCounts")
+    // console.log(response);
+    const response = await res.json();    
+    return response.count;
+  }
+
+
+
+function apply(){
+    console.log(props.isloggedin)
+    if (props.isloggedin){
+        console.log('loggedinn')
+    }
+}
+
+
+  const handleOnSubmit = async (e) => {
+    // e.preventDefault();
+    console.log(JSON.stringify({companyname,jobtitle,jobdesc,recruter }));
+    let result;
+    if(isitInternship){
+      result = await fetch(
+        (API_BASE+'/auth/postaintenship'), {
+            method: "post",
+            body: JSON.stringify({companyname,jobtitle,jobdesc,recruter }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        )
+    }else{
+      result = await fetch(
+        (API_BASE+'/auth/postajob'), {
+            method: "post",
+            body: JSON.stringify({companyname,jobtitle,jobdesc,recruter }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        )
+    }
+    result = await result.json();
+    console.warn(result);
+    console.log(result.code);
+    
+
+    if(result.code === 0){
+        alert("Please enter the details");
+    }else{
+        if (result) {
+          if(isitInternship){
+            alert("Posted a new Internship");
+          }else{
+            alert("Posted a New Job");
+          }
+            setJobTitle("");
+            setJobdesc("");
+            setcompanyname("");
+        }
+    }
+}
 
   function postajob(){
     if(poped){
+      console.log("Posting a job");
+      handleOnSubmit(isitInternship);
       setPoped(false);
+      getNumberOfJobsPosted().then(data=>{
+        setOpportunitiesPostedCount(data)
+      })
+      .catch(err=>{
+          console.log(err);
+      })
     }else{
       setPoped(true);
     }
   }
- 
+
+
 
     return (
 
@@ -25,7 +138,7 @@ function RecDash() {
 
         {poped ? 
           <div className="popupconatiner">
-            <Newjobpop postjob={postajob} />
+            <Newjobpop isitInternship={isitInternship} postjob={postajob} companyname={companyname} jobtitle={jobtitle} jobdesc={jobdesc} setcompanyname={setcompanyname} setJobTitle={setJobTitle} setJobdesc={setJobdesc}/>
           </div>   
         :
         <></>
@@ -38,6 +151,12 @@ function RecDash() {
                 <div className="search-bar">
                   <FaSearch className="icons searchicons"/>
                   <input type="text" placeholder="Search Your employees"></input>
+                </div>
+                <div className="userDisplayName">
+                  Hello {displayName}
+                </div>
+                <div className="logout">
+                  <Link to="/login">LogOut </Link>
                 </div>
                 <div className="profile-menu">
                   <AiOutlineMenu className="icons menuicon"/>
@@ -53,9 +172,10 @@ function RecDash() {
                 <div className="innerholder">
                   <p>Post a</p>
                   <div className="postbtn">
-                    <button>Internship</button>
-                    <button onClick={() => {postajob()}}>Job</button>
-                    <button>View Applicants</button>
+                    <button onClick={()=>{postajob();setIsitIntership(true)}}>Internship</button>
+                    <button onClick={() => {postajob();setIsitIntership(false)}}>Job</button>
+                    {/* <button>View Applicants</button> */}
+                    <Link to="/login/recdash/viewapplicants"><button>View Applicants</button> </Link>
                   </div>
                 </div>
               </div>
@@ -72,14 +192,14 @@ function RecDash() {
             </div>
             <div className="opporcont widget">
               <p className="heading">Posted</p>
-              <p className="number">5</p>
+              <p className="number">{OpportunitiesPostedCount}</p>
               <p className="slash">\</p>
-              <p className="headinglow ">Hired</p>
+              <p className="headinglow ">Hired</p>  
               <p className="number2">8</p>
             </div>
             <div className="newcadcont widget">
                 <p className="heading">New Applicants</p>
-                <p className="number">38</p>
+                <p className="number">{NewUsersCount}</p>
             </div>
             <div className="somecont widget">
                 <div className="filter">

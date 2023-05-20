@@ -7,11 +7,6 @@ const API_BASE = "http://localhost:3001";
 
 
 function Registerrecruit(){
-
-
-
-
-    
         const [name, setName] = useState("");
         const [username, setUsername] = useState("");
         const [password, setPassword] = useState("");

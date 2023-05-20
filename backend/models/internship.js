@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const jobs = new Schema({
+const internship = new Schema({
 	companyname: {
 		type: String,
 		required: true
@@ -20,6 +20,6 @@ const jobs = new Schema({
 	}
 });
 
-const Jobs = mongoose.model("jobs", jobs);
+const Internship = mongoose.model("internship", internship);
 
-module.exports =Jobs;
+module.exports =Internship;

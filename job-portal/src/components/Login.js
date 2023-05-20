@@ -78,6 +78,13 @@ function Login(props){
                 props.setNames(inname);
                 // console.log(props.name);
                 props.setisUserRegistered(1);
+                const userData = {
+                    name : inname,
+                    username : props.username
+                  };
+                  // Store the object into storage
+                  localStorage.setItem("userData", JSON.stringify(userData));
+                  console.log("Storing user Data In JSON file");
             } 
 
         console.log(data)
@@ -108,14 +115,22 @@ function Login(props){
                console.log(result.name);
 
                if(result.code === 1){
-                    alert("Successfully Logged in");
-                    console.log(props.isLoggedIn)
-                    // props.setIsLoggedIns(true);
+                   console.log(props.isLoggedIn);
+                   // props.setIsLoggedIns(true);
                     changeisLoggedIN();
-                    props.setNames(result.name);
+                   props.setNames(result.name);
                     console.log("login after successful", isloggedin);
-                    console.log(props.name);
-                    console.log(result.isRec);
+                   console.log(props.name);
+                   console.log(result.isRec);
+                   var userData = {
+                       name : result.name,
+                        username : props.username
+                      };
+                      console.log(JSON.stringify(userData));
+                      // Store the object into storage
+                      localStorage.setItem("userData", JSON.stringify(userData));
+                      console.log("Storing user Data In JSON file");
+                      alert("Successfully Logged in");
                     if(result.isRec === 1){
                         window.open("http://localhost:3000/login/recdash");
                     }else{
