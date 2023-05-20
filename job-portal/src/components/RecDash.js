@@ -4,6 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import {AiOutlineMenu } from "react-icons/ai";
 import Newjobpop from "./Newjobpop" ;
 import { useState,useEffect } from "react";
+import { Link } from "react-router-dom";
 const API_BASE = "http://localhost:3001";
 
 
@@ -154,6 +155,9 @@ function apply(){
                 <div className="userDisplayName">
                   Hello {displayName}
                 </div>
+                <div className="logout">
+                  <Link to="/login">LogOut </Link>
+                </div>
                 <div className="profile-menu">
                   <AiOutlineMenu className="icons menuicon"/>
                   <div className="profile"></div>
@@ -170,7 +174,8 @@ function apply(){
                   <div className="postbtn">
                     <button onClick={()=>{postajob();setIsitIntership(true)}}>Internship</button>
                     <button onClick={() => {postajob();setIsitIntership(false)}}>Job</button>
-                    <button>View Applicants</button>
+                    {/* <button>View Applicants</button> */}
+                    <Link to="/login/recdash/viewapplicants"><button>View Applicants</button> </Link>
                   </div>
                 </div>
               </div>

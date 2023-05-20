@@ -141,6 +141,11 @@ app.get('/getJobPostedCounts',async(req,res)=>{
 
 })
 
+app.get('/getApplicants',async(req,res)=>{
+    const response = await Auth.find()
+    res.send(response)
+})
+
 app.post('/auth/recregister', (req, res) => {
 
     const {username, password, name, companyname, roll, email} = req.body;

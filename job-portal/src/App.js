@@ -6,6 +6,7 @@ import ApplicantDashboard from './components/ApplicantDashboard';
 import Registerrecruit from './components/Recrutergister';
 import RecDash from './components/RecDash';
 import Homepage from './components/Homepage';
+import ViewApplicants from './components/ViewApplicants';
 import { useState } from 'react';
 
 
@@ -47,6 +48,7 @@ function App() {
         <Route path="/dashboard" element={ <ApplicantDashboard name={name}/> }/>
         <Route path="/regirecruiter" element={<Registerrecruit />} />
         <Route path="/login/recdash" element={<RecDash name={name} username={username} />} />
+        <Route path="/login/recdash/viewapplicants" element={<ViewApplicants />} />
         <Route exact path="/" element={<Homepage isloggedin={isloggedin}/>} />
       </Routes>
     </Router>
