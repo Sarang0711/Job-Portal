@@ -115,3 +115,8 @@
 form {
   border: 1px solid green;
 }
+
+form input{
+  color : black;
+  border : 2px solid #0bdd12;
+}
